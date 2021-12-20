@@ -1,0 +1,17 @@
+<form  #form>
+  <div class="form" >
+  <div class="inpus" >
+    <button  class="to">To</button><input class="bx" type="email"><br>
+    <button  class="to">From</button><input class="bx" type="email"><br>
+    <button  class="to">Subject </button><input class="bx" type="text"><br>
+  </div>
+  <div class="message">
+      <textarea class="message" type="text" [defaultValue]="default">
+      </textarea>
+      <input type="file" value="addfile" >
+
+  </div>
+  <button id="sub" type="submit" (click)="sendemail()">Submit</button>
+  </div>
+</form>
+

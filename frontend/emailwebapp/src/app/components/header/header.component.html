@@ -1,0 +1,75 @@
+
+<div class="container-pos">
+    <div class="row">
+        <div class="col-sm-3 col-md-2">
+           <!-- <div class="btn-group">
+                <button type="menu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Mail <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Mail</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Tasks</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-9 col-md-10">
+           <!-- Split button
+            <div class="btn-group">
+                <button type="button" class="btn btn-default">
+                    <div class="checkbox" style="margin: 0;">
+                        <label>
+                            <input type="checkbox">
+                        </label>
+                    </div>
+                </button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">None</a></li>
+                    <li><a href="#">Read</a></li>
+                    <li><a href="#">Unread</a></li>
+                    <li><a href="#">Starred</a></li>
+                    <li><a href="#">Unstarred</a></li>
+                </ul>
+            </div>
+            <!-- <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
+                   <span class="glyphicon glyphicon-refresh"></span>   </button>
+            <!-- Single button
+            <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    More <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">Mark all as read</a></li>
+                    <li class="divider"></li>
+                    <li class="text-center"><small class="text-muted">Select messages to see more actions</small></li>
+                </ul>
+            </div>
+
+        </div>-->
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-3 col-md-2">
+            <a  routerLink="Compose"class="btn btn-danger btn-sm btn-block" role="button">COMPOSE  <span></span><span class="glyphicon glyphicon-plus no-margin">
+            </span></a>
+            <hr />
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active"><a routerLink="inbox"><span class="badge pull-right">42</span> Inbox </a>
+                </li>
+                <li><a routerLink="SentItems"><span class="badge pull-right">5</span>Sent Mails</a></li>
+                <li><a routerLink="Trash"><span class="badge pull-right">0</span>Trash</a></li>
+
+                <li><a routerLink="Drafts"><span class="badge pull-right">3</span>Drafts</a></li>
+                <li><a routerLink="Star"><span class="badge pull-right">3</span><span class="glyphicon glyphicon-star-empty"></span>Starred</a></li>
+
+            </ul>
+        </div>
+            <!-- Ad -->
+
+    </div>
+</div>
+<router-outlet></router-outlet>
