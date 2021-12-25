@@ -1,44 +1,61 @@
 package com.example.emailweb;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Account {
-    String First_Name;
-    String Last_Name;
-    String Address;
+    String Name;
+    String UserName;
+    String Password;
+    Date DateOfBirth;
     ArrayList<Email> Sent;
-    ArrayList<Email> Received;
+    ArrayList<Email> Inbox;
+    ArrayList<Email> Trash;
+    ArrayList<Email> Starred;
+    ArrayList<Email> Drafts;
 
-    public Account(String first_Name, String last_Name, String address, ArrayList<Email> sent, ArrayList<Email> received) {
-        First_Name = first_Name;
-        Last_Name = last_Name;
-        Address = address;
+    public Account(String name, String userName, String password, Date dateOfBirth, ArrayList<Email> sent, ArrayList<Email> inbox, ArrayList<Email> trash, ArrayList<Email> starred, ArrayList<Email> drafts) {
+        Name = name;
+        UserName = userName;
+        Password = password;
+        DateOfBirth = dateOfBirth;
         Sent = sent;
-        Received = received;
+        Inbox = inbox;
+        Trash = trash;
+        Starred = starred;
+        Drafts = drafts;
     }
 
-    public String getFirst_Name() {
-        return First_Name;
+    public String getName() {
+        return Name;
     }
 
-    public void setFirst_Name(String first_Name) {
-        First_Name = first_Name;
+    public void setName(String name) {
+        Name = name;
     }
 
-    public String getLast_Name() {
-        return Last_Name;
+    public String getUserName() {
+        return UserName;
     }
 
-    public void setLast_Name(String last_Name) {
-        Last_Name = last_Name;
+    public void setUserName(String userName) {
+        UserName = userName;
     }
 
-    public String getAddress() {
-        return Address;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setAddress(String address) {
-        Address = address;
+    public void setPassword(String password) {
+        Password = password;
+    }
+
+    public Date getDateOfBirth() {
+        return DateOfBirth;
+    }
+
+    public void setDateOfBirth(Date dateOfBirth) {
+        DateOfBirth = dateOfBirth;
     }
 
     public ArrayList<Email> getSent() {
@@ -49,11 +66,35 @@ public class Account {
         Sent = sent;
     }
 
-    public ArrayList<Email> getReceived() {
-        return Received;
+    public ArrayList<Email> getInbox() {
+        return Inbox;
     }
 
-    public void setReceived(ArrayList<Email> received) {
-        Received = received;
+    public void setInbox(ArrayList<Email> inbox) {
+        Inbox = inbox;
+    }
+
+    public ArrayList<Email> getTrash() {
+        return Trash;
+    }
+
+    public void setTrash(ArrayList<Email> trash) {
+        Trash = trash;
+    }
+
+    public ArrayList<Email> getStarred() {
+        return Starred;
+    }
+
+    public void setStarred(ArrayList<Email> starred) {
+        Starred = starred;
+    }
+
+    public ArrayList<Email> getDrafts() {
+        return Drafts;
+    }
+
+    public void setDrafts(ArrayList<Email> drafts) {
+        Drafts = drafts;
     }
 }
