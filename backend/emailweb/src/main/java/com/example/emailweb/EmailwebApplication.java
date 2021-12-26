@@ -8,5 +8,4 @@ public class EmailwebApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(EmailwebApplication.class, args);
 	}
-
 }

@@ -6,7 +6,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class JSONtoEmailArray implements Converter<ArrayList<Email>, JSONObject>{
 

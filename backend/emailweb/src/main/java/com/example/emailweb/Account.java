@@ -7,18 +7,18 @@ public class Account {
     String Name;
     String UserName;
     String Password;
-    //Date DateOfBirth;
+    Date DateOfBirth;
     ArrayList<Email> Sent;
     ArrayList<Email> Inbox;
     ArrayList<Email> Trash;
     ArrayList<Email> Starred;
     ArrayList<Email> Drafts;
 
-    public Account(String name, String userName, String password/*, Date dateOfBirth*/, ArrayList<Email> sent, ArrayList<Email> inbox, ArrayList<Email> trash, ArrayList<Email> starred, ArrayList<Email> drafts) {
+    public Account(String name, String userName, String password, Date dateOfBirth, ArrayList<Email> sent, ArrayList<Email> inbox, ArrayList<Email> trash, ArrayList<Email> starred, ArrayList<Email> drafts) {
         Name = name;
         UserName = userName;
         Password = password;
-        //DateOfBirth = dateOfBirth;
+        DateOfBirth = dateOfBirth;
         Sent = sent;
         Inbox = inbox;
         Trash = trash;
@@ -50,13 +50,13 @@ public class Account {
         Password = password;
     }
 
-    /*public Date getDateOfBirth() {
+    public Date getDateOfBirth() {
         return DateOfBirth;
     }
 
     public void setDateOfBirth(Date dateOfBirth) {
         DateOfBirth = dateOfBirth;
-    }*/
+    }
 
     public ArrayList<Email> getSent() {
         return Sent;

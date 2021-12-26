@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package com.example.emailweb;
 
 import com.example.emailweb.converter.AccountArraytoJSON;
@@ -57,3 +58,30 @@ public class JSONFile {
         System.out.println(A);
     }
 }
+=======
+package com.example.emailweb;
+
+import org.json.JSONArray;
+
+import java.util.ArrayList;
+
+public class JSONFile {
+    JSONArray Accounts = new JSONArray();
+
+    ArrayList<Account> accountslist;
+
+    Account ac(String Address){
+        for (int i = 0; i < accountslist.size(); i++){
+            String A = accountslist.get(i).getUserName();
+            if (A.equalsIgnoreCase(Address)){
+                return accountslist.get(i);
+            }
+        }
+        return null;
+    }
+
+    public void Save(){
+
+    }
+}
+>>>>>>> b47148ba014efdfdd8a3bb2376bb5b5fba54da49

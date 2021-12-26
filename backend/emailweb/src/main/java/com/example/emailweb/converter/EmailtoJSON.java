@@ -1,11 +1,13 @@
 package com.example.emailweb.converter;
 
 import com.example.emailweb.Email;
-import com.fasterxml.jackson.core.JacksonException;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.text.SimpleDateFormat;
 
 public class EmailtoJSON implements Converter<JSONObject, Email>{
+
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     @Override
     public JSONObject create(Email e) throws JSONException {
@@ -14,7 +16,7 @@ public class EmailtoJSON implements Converter<JSONObject, Email>{
         J.put("body", e.getBody());
         J.put("from", e.getFrom());
         J.put("to", e.getTo());
-        J.put("Date", e.getDate().toString());
+        J.put("Date", sdf.format(e.getDate()));
         return J;
     }
 }

@@ -16,7 +16,7 @@ public class JSONtoAccount implements Converter<Account, JSONObject>{
         Account Ac = new Account(J.getString("Name"),
                 J.getString("UserName"),
                 J.getString("Password"),
-                //sdf.parse(J.getString("DateOfBirth")),
+                sdf.parse(J.getString("DateOfBirth")),
                 JEA.create(J.getJSONObject("Sent")),
                 JEA.create(J.getJSONObject("Inbox")),
                 JEA.create(J.getJSONObject("Trash")),
