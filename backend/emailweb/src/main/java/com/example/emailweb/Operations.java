@@ -1,37 +1,36 @@
 package com.example.emailweb;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.tomcat.util.json.JSONParser;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONString;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 
+@RestController
+@CrossOrigin(origins = "http://localhost:4200/")
+@RequestMapping("/operate")
 public class Operations {
 
-    Account A = new Account("Ahmed", "Ezz", "ahmedezz", new ArrayList<>(), new ArrayList<>());
-    Account B = new Account("Abdelatef", "Habiba", "abdelatef", new ArrayList<>(), new ArrayList<>());
+    JSONObject obj = new JSONObject();
+    ObjectMapper mapper = new ObjectMapper();
+    
+    JSONFile J = new JSONFile();
 
-    ArrayList<Account> accountslist;
 
-    void mylist(){
-        accountslist.add(A);
-        accountslist.add(B);
-    }
 
-    Account ac(String Address){
-        for (int i = 0; i < accountslist.size(); i++){
-            String A = accountslist.get(i).getAddress();
-            if (A.equalsIgnoreCase(Address)){
-                return accountslist.get(i);
-            }
-        }
-        return null;
-    }
-    void send(Email message){
-        Account S = ac(message.getFrom());
-        Account R = ac(message.getTo());
+    @GetMapping("/send")
+    void send(@RequestParam Email message){
+        Account S = J.ac(message.getFrom());
+        Account R = J.ac(message.getTo());
         ArrayList sent = S.getSent();
         sent.add(message);
         S.setSent(sent);
-        ArrayList inbox = R.getReceived();
+        ArrayList inbox = R.getInbox();
         inbox.add(message);
-        R.setReceived(inbox);
+        R.setInbox(inbox);
     }
 
 }

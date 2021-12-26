@@ -1,4 +1,6 @@
+import { InboxComponent } from './../inbox/inbox.component';
 import { Component, OnInit } from '@angular/core';
+import { ComponentscontrollerService } from '../componentscontroller.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private controll:ComponentscontrollerService) { }
 
   ngOnInit(): void {
-  }
 
+  }
+  
 }

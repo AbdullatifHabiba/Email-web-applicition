@@ -1,16 +1,20 @@
 package com.example.emailweb;
 
+import java.util.Date;
+
 public class Email {
     String Object;
-    String[] body;
+    String body;
     String from;
     String to;
+    Date date;
 
-    public Email(String object, String[] body, String from, String to) {
+    public Email(String object, String body, String from, String to, Date date) {
         Object = object;
         this.body = body;
         this.from = from;
         this.to = to;
+        this.date = date;
     }
 
     public String getObject() {
@@ -21,11 +25,11 @@ public class Email {
         Object = object;
     }
 
-    public String[] getBody() {
+    public String getBody() {
         return body;
     }
 
-    public void setBody(String[] body) {
+    public void setBody(String body) {
         this.body = body;
     }
 
@@ -43,5 +47,13 @@ public class Email {
 
     public void setTo(String to) {
         this.to = to;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

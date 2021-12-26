@@ -1,9 +1,7 @@
 #tablemess
 {
-position: absolute;
-top: 81px;
-    position: absolute;
+  position: fixed;
+    top: 297px;
     left: 250px;
     width: 620px;
-    height: auto;
-}
+    height: auto;}

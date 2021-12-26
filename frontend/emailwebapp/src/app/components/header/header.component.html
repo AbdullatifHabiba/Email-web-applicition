@@ -1,7 +1,9 @@
 
 <div class="container-pos">
     <div class="row">
+
         <div class="col-sm-3 col-md-2">
+
            <!-- <div class="btn-group">
                 <button type="menu" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                     Mail <span class="caret"></span>
@@ -53,23 +55,20 @@
     </div>
     <hr />
     <div class="row">
-        <div class="col-sm-3 col-md-2">
+        <div class="col-sm-3 col-md-2"  id="menus">
             <a  routerLink="Compose"class="btn btn-danger btn-sm btn-block" role="button">COMPOSE  <span></span><span class="glyphicon glyphicon-plus no-margin">
             </span></a>
-            <hr />
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a routerLink="inbox"><span class="badge pull-right">42</span> Inbox </a>
+                <li class="active"><a routerLink="inbox"> <span class="badge pull-right">42</span> <span class="glyphicon glyphicon-inbox"></span>Inbox </a>
                 </li>
                 <li><a routerLink="SentItems"><span class="badge pull-right">5</span>Sent Mails</a></li>
-                <li><a routerLink="Trash"><span class="badge pull-right">0</span>Trash</a></li>
+                <li><a routerLink="Trash"><span class="badge pull-right">0</span><span class="glyphicon glyphicon-trash"></span>Trash</a></li>
 
                 <li><a routerLink="Drafts"><span class="badge pull-right">3</span>Drafts</a></li>
                 <li><a routerLink="Star"><span class="badge pull-right">3</span><span class="glyphicon glyphicon-star-empty"></span>Starred</a></li>
 
             </ul>
         </div>
-            <!-- Ad -->
 
     </div>
 </div>
-<router-outlet></router-outlet>

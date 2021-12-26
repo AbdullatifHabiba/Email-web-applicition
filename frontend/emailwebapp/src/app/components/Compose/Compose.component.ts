@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AbstractControl, FormControl} from '@angular/forms';
+import { EditorModule } from 'primeng/editor';
 
 @Component({
   selector: 'app-Compose',
