@@ -1,17 +1,17 @@
-<form  #form>
-  <div class="form" >
+<form   [formGroup]="form">
+  <div class="form" formGroupName="form">
   <div class="inpus" >
-    <button  class="to">To</button><input class="bx" type="email"><br>
-    <button  class="to">From</button><input class="bx" type="email"><br>
-    <button  class="to">Subject </button><input class="bx" type="text"><br>
+    <button  class="to">To</button><input formControlName="to" class="bx" type="email"><br>
+    <button  class="to">From</button><input formControlName="from" class="bx" type="email"><br>
+    <button  class="to">Subject </button><input formControlName="subject" class="bx" type="text"><br>
   </div>
   <div class="message">
-      <textarea class="message" type="text" [defaultValue]="default">
+      <textarea class="message" type="text" [defaultValue]="default" formControlName="body">
 
       </textarea>
-      <a href="#" class="btn btn-info btn-lg">
-        <span class="glyphicon glyphicon-upload"></span> attach
-      </a>
+        <div class="form-group">
+          <input type="file" (change)="uploadFile($event.target)" formControlName="file">
+      </div>
   </div>
   <button id="sub" type="submit" (click)="sendemail()">Submit</button>
   </div>
