@@ -16,7 +16,8 @@ public class JSONtoEmail implements Converter<Email, JSONObject>{
                 J.getString("body"),
                 J.getString("from"),
                 J.getString("to"),
-                sdf.parse(J.getString("Date")));
+                sdf.parse(J.getString("Date")),
+                J.getInt("Importance"));
         return temp;
     }
 }

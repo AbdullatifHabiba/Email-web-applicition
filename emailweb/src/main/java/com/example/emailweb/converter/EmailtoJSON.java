@@ -17,6 +17,7 @@ public class EmailtoJSON implements Converter<JSONObject, Email>{
         J.put("from", e.getFrom());
         J.put("to", e.getTo());
         J.put("Date", sdf.format(e.getDate()));
+        J.put("Importance", e.getImportance());
         return J;
     }
 }

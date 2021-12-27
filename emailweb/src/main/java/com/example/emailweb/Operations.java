@@ -40,14 +40,14 @@ public class Operations {
         return false;
     }
 
-    Account Acc(String Address){
+    int Acc(String Address){
         for (int i = 0; i < accountslist.size(); i++){
             String A = accountslist.get(i).getUserName();
             if (A.equalsIgnoreCase(Address)){
-                return accountslist.get(i);
+                return i;
             }
         }
-        return null;
+        return -1;
     }
 
     void Save(){
@@ -69,9 +69,20 @@ public class Operations {
     }
 
     @GetMapping("/send")
-    boolean send(@RequestParam String to, @RequestParam String body, @RequestParam String object){
+    boolean send(@RequestParam String object, @RequestParam String body, @RequestParam String to, int importance){
         if (Existed(to)){
-            Email M = new Email(object, body, Logged.getUserName(), to, new Date());
+            Email M = new Email(object, body, Logged.getUserName(), to, new Date(), importance);
+            int i = Acc(to);
+            Account R = accountslist.get(i);
+            ArrayList<Email> inbox = R.getInbox();
+            inbox.add(0, M);
+            R.setInbox(inbox);
+            accountslist.set(i, R);
+            i = Acc(Logged.getUserName());
+            ArrayList<Email> sent = Logged.getSent();
+            sent.add(M);
+            Logged.setSent(sent);
+            accountslist.set(i, Logged);
         }
         return false;
     }
@@ -80,9 +91,9 @@ public class Operations {
     boolean LogIn(@RequestParam String username, @RequestParam String password){
         if (!Existed(username))
             return false;
-        Account AC = Acc(username);
+        Account AC = accountslist.get(Acc(username));
         if (AC.getPassword().equalsIgnoreCase(password)){
-            Logged = Acc(username);
+            Logged = AC;
             return true;
         }
         else

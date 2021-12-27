@@ -4,17 +4,19 @@ import java.util.Date;
 
 public class Email {
     String Object;
-    String body;
-    String from;
-    String to;
-    Date date;
+    String Body;
+    String From;
+    String To;
+    Date Date;
+    int Importance;
 
-    public Email(String object, String body, String from, String to, Date date) {
+    public Email(String object, String body, String from, String to, java.util.Date date, int importance) {
         Object = object;
-        this.body = body;
-        this.from = from;
-        this.to = to;
-        this.date = date;
+        Body = body;
+        From = from;
+        To = to;
+        Date = date;
+        Importance = importance;
     }
 
     public String getObject() {
@@ -26,34 +28,42 @@ public class Email {
     }
 
     public String getBody() {
-        return body;
+        return Body;
     }
 
     public void setBody(String body) {
-        this.body = body;
+        Body = body;
     }
 
     public String getFrom() {
-        return from;
+        return From;
     }
 
     public void setFrom(String from) {
-        this.from = from;
+        From = from;
     }
 
     public String getTo() {
-        return to;
+        return To;
     }
 
     public void setTo(String to) {
-        this.to = to;
+        To = to;
     }
 
-    public Date getDate() {
-        return date;
+    public java.util.Date getDate() {
+        return Date;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDate(java.util.Date date) {
+        Date = date;
+    }
+
+    public int getImportance() {
+        return Importance;
+    }
+
+    public void setImportance(int importance) {
+        Importance = importance;
     }
 }
