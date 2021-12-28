@@ -4,8 +4,7 @@ import com.example.emailweb.converter.*;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.FileNotFoundException;
+import org.springframework.web.multipart.MultipartFile;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -30,6 +29,7 @@ public class Operations {
     ContactArraytoJSON CAJ = new ContactArraytoJSON();
     SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
     SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+    JSONtoEmail JE = new JSONtoEmail();
 
 
     public Operations() throws IOException {
@@ -98,10 +98,14 @@ public class Operations {
     }
 
     @GetMapping("/send")
-    boolean send(@RequestParam String object, @RequestParam String body, @RequestParam String to, int importance){
-        if (Existed(to)){
-            Email M = new Email(object, body, Logged.getUserName(), to, new Date(), importance);
-            int i = Acc(to);
+    boolean send(@RequestParam("Info") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException, ParseException {
+        JSONObject JO = new JSONObject(model);
+        LoadAccounts();
+        //LoadLogged();
+        if (Existed(JO.getString("To"))){
+            JO.put("From", Logged.getUserName());
+            Email M = JE.create(JO);
+            int i = Acc(JO.getString("To"));
             Account R = accountslist.get(i);
             ArrayList<Email> inbox = R.getInbox();
             inbox.add(0, M);
@@ -112,6 +116,8 @@ public class Operations {
             sent.add(0, M);
             Logged.setSent(sent);
             accountslist.set(i, Logged);
+            SaveLogged();
+            SaveAccounts();
             return true;
         }
         return false;
@@ -181,15 +187,15 @@ public class Operations {
             for (int j = 0;j < 5;j++){
                 Jarray.put(EJ.create(emails.get(5 * i + j)));
             }
-            JO.put("Page " + (i + 1), Jarray);
+            JO.put("Page " + (i + 1), Jarray.toString());
             Jarray.clear();
         }
         for (int i = 0;i < emails.size() % 5;i++){
-            Jarray.put(emails.get(5 * emails.size() / 5 + i));
+            Jarray.put(EJ.create(emails.get(5 * (emails.size() / 5) + i)));
         }
-        JO.put("Page", (emails.size() / 5 + 1));
+        JO.put("Page" + (emails.size() / 5 + 1), Jarray.toString());
         Jarray.clear();
-        fileWriter3.write(EAJ.create(emails).toString());
+        fileWriter3.write(JO.toString());
         fileWriter3.flush();
     }
 }
