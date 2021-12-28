@@ -170,12 +170,12 @@ public class Operations {
         return false;
     }
 
-    void paggination(String type) throws IOException {
+    void paggination(String Type) throws IOException {
         FileWriter fileWriter3 = new FileWriter("emails.json");
         JSONArray Jarray = new JSONArray();
         ArrayList<Email> emails = new ArrayList<>();
         JSONObject JO = new JSONObject();
-        switch (type) {
+        switch (Type) {
             case "Inbox":
                 emails = Logged.getInbox();
                 break;
@@ -329,7 +329,67 @@ public class Operations {
         }
     }
 
-    
+    void Delete(String Type, int Position){
+        ArrayList<Email> emails = new ArrayList<>();
+        ArrayList<Email> trash = Logged.getTrash();
+        switch (Type) {
+            case "Inbox":
+                emails = Logged.getInbox();
+                trash.add(emails.get(Position));
+                emails.remove(Position);
+                Logged.setSent(emails);
+                Logged.setTrash(trash);
+                break;
+            case "Sent":
+                emails = Logged.getSent();
+                trash.add(emails.get(Position));
+                emails.remove(Position);
+                Logged.setSent(emails);
+                Logged.setTrash(trash);
+                break;
+            case "Srarred":
+                emails = Logged.getStarred();
+                trash.add(emails.get(Position));
+                emails.remove(Position);
+                Logged.setSent(emails);
+                Logged.setTrash(trash);
+                break;
+            case "Drafts":
+                emails = Logged.getDrafts();
+                trash.add(emails.get(Position));
+                emails.remove(Position);
+                Logged.setSent(emails);
+                Logged.setTrash(trash);
+                break;
+            default:
+                break;
+        }
+    }
 
-
+    void Star(String Type, int Position){
+        ArrayList<Email> emails = new ArrayList<>();
+        ArrayList<Email> trash = Logged.getTrash();
+        switch (Type) {
+            case "Inbox":
+                emails = Logged.getInbox();
+                trash.add(emails.get(Position));
+                Logged.setSent(emails);
+                Logged.setTrash(trash);
+                break;
+            case "Sent":
+                emails = Logged.getSent();
+                trash.add(emails.get(Position));
+                Logged.setSent(emails);
+                Logged.setTrash(trash);
+                break;
+            case "Drafts":
+                emails = Logged.getDrafts();
+                trash.add(emails.get(Position));
+                Logged.setSent(emails);
+                Logged.setTrash(trash);
+                break;
+            default:
+                break;
+        }
+    }
 }
