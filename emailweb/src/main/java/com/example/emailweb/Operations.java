@@ -1,6 +1,10 @@
 package com.example.emailweb;
 
 import com.example.emailweb.converter.*;
+import com.example.emailweb.sorting.SortByDateA;
+import com.example.emailweb.sorting.SortByDateD;
+import com.example.emailweb.sorting.SortByImportanceA;
+import com.example.emailweb.sorting.SortByImportanceD;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +34,11 @@ public class Operations {
     SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
     SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
     JSONtoEmail JE = new JSONtoEmail();
+    SortByImportanceA SIA = new SortByImportanceA();
+    SortByImportanceD SID = new SortByImportanceD();
+    SortByDateA SDA = new SortByDateA();
+    SortByDateD SDD = new SortByDateD();
+
 
 
     public Operations() throws IOException {
@@ -130,6 +139,8 @@ public class Operations {
         Account AC = accountslist.get(Acc(username));
         if (AC.getPassword().equalsIgnoreCase(password)){
             Logged = AC;
+            SaveLogged();
+            SaveAccounts();
             return true;
         }
         else
@@ -198,4 +209,127 @@ public class Operations {
         fileWriter3.write(JO.toString());
         fileWriter3.flush();
     }
+
+    void Sort(String Type, String EmailsType){
+        ArrayList<Email> emails = new ArrayList<>();
+        switch (EmailsType) {
+            case "Inbox":
+                emails = Logged.getInbox();
+                switch (Type){
+                    case "DateA":
+                        SDA.Sort(emails);
+                        Logged.setInbox(emails);
+                        break;
+                    case "DateD":
+                        SDD.Sort(emails);
+                        Logged.setInbox(emails);
+                        break;
+                    case "ImportanceA":
+                        SIA.Sort(emails);
+                        Logged.setInbox(emails);
+                        break;
+                    case "ImportanceD":
+                        SID.Sort(emails);
+                        Logged.setInbox(emails);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "Sent":
+                switch (Type){
+                    case "DateA":
+                        SDA.Sort(emails);
+                        Logged.setSent(emails);
+                        break;
+                    case "DateD":
+                        SDD.Sort(emails);
+                        Logged.setSent(emails);
+                        break;
+                    case "ImportanceA":
+                        SIA.Sort(emails);
+                        Logged.setSent(emails);
+                        break;
+                    case "ImportanceD":
+                        SID.Sort(emails);
+                        Logged.setSent(emails);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "Srarred":
+                switch (Type){
+                    case "DateA":
+                        SDA.Sort(emails);
+                        Logged.setStarred(emails);
+                        break;
+                    case "DateD":
+                        SDD.Sort(emails);
+                        Logged.setStarred(emails);
+                        break;
+                    case "ImportanceA":
+                        SIA.Sort(emails);
+                        Logged.setStarred(emails);
+                        break;
+                    case "ImportanceD":
+                        SID.Sort(emails);
+                        Logged.setStarred(emails);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "Trash":
+                switch (Type){
+                    case "DateA":
+                        SDA.Sort(emails);
+                        Logged.setTrash(emails);
+                        break;
+                    case "DateD":
+                        SDD.Sort(emails);
+                        Logged.setTrash(emails);
+                        break;
+                    case "ImportanceA":
+                        SIA.Sort(emails);
+                        Logged.setTrash(emails);
+                        break;
+                    case "ImportanceD":
+                        SID.Sort(emails);
+                        Logged.setTrash(emails);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case "Drafts":
+                switch (Type){
+                    case "DateA":
+                        SDA.Sort(emails);
+                        Logged.setDrafts(emails);
+                        break;
+                    case "DateD":
+                        SDD.Sort(emails);
+                        Logged.setDrafts(emails);
+                        break;
+                    case "ImportanceA":
+                        SIA.Sort(emails);
+                        Logged.setDrafts(emails);
+                        break;
+                    case "ImportanceD":
+                        SID.Sort(emails);
+                        Logged.setDrafts(emails);
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    
+
+
 }

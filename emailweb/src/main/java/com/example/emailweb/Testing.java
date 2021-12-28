@@ -25,5 +25,6 @@ public class Testing {
         JO.put("Password","00000000");
         JO.put("DateOfBirth","2006-02-16");
         o.Regist(JO.toString());
+        o.LogIn("ahmed", "1234567");
     }
 }
