@@ -10,14 +10,14 @@ public class EmailtoJSON implements Converter<JSONObject, Email>{
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     @Override
-    public JSONObject create(Email e) throws JSONException {
-        JSONObject J = new JSONObject();
-        J.put("Object", e.getObject());
-        J.put("body", e.getBody());
-        J.put("from", e.getFrom());
-        J.put("to", e.getTo());
-        J.put("Date", sdf.format(e.getDate()));
-        J.put("Importance", e.getImportance());
-        return J;
+    public JSONObject create(Email E) throws JSONException {
+        JSONObject JO = new JSONObject();
+        JO.put("Object", E.getObject());
+        JO.put("Body", E.getBody());
+        JO.put("From", E.getFrom());
+        JO.put("To", E.getTo());
+        JO.put("Date", sdf.format(E.getDate()));
+        JO.put("Importance", E.getImportance());
+        return JO;
     }
 }

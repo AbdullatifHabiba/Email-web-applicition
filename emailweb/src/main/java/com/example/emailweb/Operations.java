@@ -26,9 +26,11 @@ public class Operations {
     AccountArraytoJSON AAJ = new AccountArraytoJSON();
     JSONtoAccount JA = new JSONtoAccount();
     AccounttoJSON AJ = new AccounttoJSON();
-    JSONtoArrayAccounts JAA = new JSONtoArrayAccounts();
+    JSONtoAccountArray JAA = new JSONtoAccountArray();
+    ContactArraytoJSON CAJ = new ContactArraytoJSON();
     SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
     SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+
 
     public Operations() throws IOException {
     }
@@ -131,7 +133,7 @@ public class Operations {
     @GetMapping("/checkregister")
     boolean Regist(@RequestParam String Form) throws ParseException {
         LoadAccounts();
-        LoadLogged();
+        //LoadLogged();
         JSONObject JO = new JSONObject(Form);
         if (!Existed(JO.getString("UserName"))) {
             JO.put("DateOfBirth", sdf1.format(sdf2.parse(JO.getString("DateOfBirth"))));
@@ -140,6 +142,7 @@ public class Operations {
             JO.put("Trash", EAJ.create(new ArrayList<Email>()));
             JO.put("Starred", EAJ.create(new ArrayList<Email>()));
             JO.put("Drafts", EAJ.create(new ArrayList<Email>()));
+            JO.put("Contacts", CAJ.create(new ArrayList<Contact>()));
             Account Ac = JA.create(JO);
             accountslist.add(Ac);
             LogIn(Ac.getUserName(), Ac.getPassword());

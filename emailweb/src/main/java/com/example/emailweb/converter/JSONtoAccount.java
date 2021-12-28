@@ -10,19 +10,20 @@ public class JSONtoAccount implements Converter<Account, JSONObject>{
 
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     JSONtoEmailArray JEA = new JSONtoEmailArray();
+    JSONtoContactArray JCA = new JSONtoContactArray();
 
     @Override
-    public Account create(JSONObject J) throws JSONException, ParseException {
-        Account Ac = new Account(J.getString("Name"),
-                J.getString("UserName"),
-                J.getString("Password"),
-                sdf.parse(J.getString("DateOfBirth")),
-                JEA.create(J.getJSONObject("Sent")),
-                JEA.create(J.getJSONObject("Inbox")),
-                JEA.create(J.getJSONObject("Trash")),
-                JEA.create(J.getJSONObject("Starred")),
-                JEA.create(J.getJSONObject("Drafts"))
-                );
+    public Account create(JSONObject JO) throws JSONException, ParseException {
+        Account Ac = new Account(JO.getString("Name"),
+                JO.getString("UserName"),
+                JO.getString("Password"),
+                sdf.parse(JO.getString("DateOfBirth")),
+                JEA.create(JO.getJSONObject("Sent")),
+                JEA.create(JO.getJSONObject("Inbox")),
+                JEA.create(JO.getJSONObject("Trash")),
+                JEA.create(JO.getJSONObject("Starred")),
+                JEA.create(JO.getJSONObject("Drafts")),
+                JCA.create(JO.getJSONObject("Contacts")));
         return Ac;
     }
 }

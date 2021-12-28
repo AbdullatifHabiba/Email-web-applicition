@@ -13,8 +13,9 @@ public class Account {
     ArrayList<Email> Trash;
     ArrayList<Email> Starred;
     ArrayList<Email> Drafts;
+    ArrayList<Contact> Contacts;
 
-    public Account(String name, String userName, String password, Date dateOfBirth, ArrayList<Email> sent, ArrayList<Email> inbox, ArrayList<Email> trash, ArrayList<Email> starred, ArrayList<Email> drafts) {
+    public Account(String name, String userName, String password, Date dateOfBirth, ArrayList<Email> sent, ArrayList<Email> inbox, ArrayList<Email> trash, ArrayList<Email> starred, ArrayList<Email> drafts, ArrayList<Contact> contacts) {
         Name = name;
         UserName = userName;
         Password = password;
@@ -24,6 +25,7 @@ public class Account {
         Trash = trash;
         Starred = starred;
         Drafts = drafts;
+        Contacts = contacts;
     }
 
     public String getName() {
@@ -96,5 +98,13 @@ public class Account {
 
     public void setDrafts(ArrayList<Email> drafts) {
         Drafts = drafts;
+    }
+
+    public ArrayList<Contact> getContacts() {
+        return Contacts;
+    }
+
+    public void setContacts(ArrayList<Contact> contacts) {
+        Contacts = contacts;
     }
 }
