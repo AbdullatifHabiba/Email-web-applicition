@@ -31,22 +31,28 @@ public class Controller {
     }
 
     @GetMapping("/delete")
-    void delete(@RequestParam String Type, @RequestParam int Position){
+    void delete(@RequestParam String Type, @RequestParam int Position) throws IOException {
         O.Delete(Type, Position);
     }
 
     @GetMapping("/sort")
-    void sort(@RequestParam String Type, @RequestParam String EmailsType){
+    void sort(@RequestParam String Type, @RequestParam String EmailsType) throws IOException {
         O.Sort(Type, EmailsType);
     }
 
     @GetMapping("/star")
-    void star(@RequestParam String Type, @RequestParam int Position){
+    void star(@RequestParam String Type, @RequestParam int Position) throws IOException {
         O.Star(Type, Position);
     }
 
-    @GetMapping("/display")
-    void display(@RequestParam String Type) throws IOException {
+    @GetMapping("/displayemails")
+    void displayemsils(@RequestParam String Type) throws IOException {
         O.Paggination(Type);
     }
+
+    @GetMapping("/displayemail")
+    void displayemail(@RequestParam String Type, @RequestParam int Position) throws IOException {
+        O.DisplayEmail(Type, Position);
+    }
+
 }

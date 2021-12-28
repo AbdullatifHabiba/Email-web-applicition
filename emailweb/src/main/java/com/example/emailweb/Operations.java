@@ -7,7 +7,7 @@ import com.example.emailweb.sorting.SortByImportanceA;
 import com.example.emailweb.sorting.SortByImportanceD;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.parameters.P;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -164,7 +164,6 @@ public class Operations {
     }
 
     void Paggination(String Type) throws IOException {
-        FileWriter fileWriter3 = new FileWriter("emails.json");
         JSONArray Jarray = new JSONArray();
         ArrayList<Email> emails = new ArrayList<>();
         JSONObject JO = new JSONObject();
@@ -199,11 +198,52 @@ public class Operations {
         }
         JO.put("Page" + (emails.size() / 5 + 1), Jarray.toString());
         Jarray.clear();
-        fileWriter3.write(JO.toString());
-        fileWriter3.flush();
+        try {
+            FileWriter fileWriter3 = new FileWriter("emails.json");
+            fileWriter3.write(JO.toString());
+            fileWriter3.flush();
+        }
+        catch (IOException e) {e.printStackTrace(); }
+        catch (Exception e){ e.printStackTrace(); }
     }
 
-    void Sort(String Type, String EmailsType){
+    void DisplayEmail(String Type, int Position) throws IOException {
+        Email email;
+        JSONObject JO = new JSONObject();
+        switch (Type) {
+            case "Inbox":
+                email = Logged.getInbox().get(Position);
+                JO = EJ.create(email);
+                break;
+            case "Sent":
+                email = Logged.getSent().get(Position);
+                JO = EJ.create(email);
+                break;
+            case "Srarred":
+                email = Logged.getStarred().get(Position);
+                JO = EJ.create(email);
+                break;
+            case "Trash":
+                email = Logged.getTrash().get(Position);
+                JO = EJ.create(email);
+                break;
+            case "Drafts":
+                email = Logged.getDrafts().get(Position);
+                JO = EJ.create(email);
+                break;
+            default:
+                break;
+        }
+        try {
+            FileWriter fileWriter4 = new FileWriter("email.json");
+            fileWriter4.write(JO.toString());
+            fileWriter4.flush();
+        }
+        catch (IOException e) {e.printStackTrace(); }
+        catch (Exception e){ e.printStackTrace(); }
+    }
+
+    void Sort(String Type, String EmailsType) throws IOException {
         ArrayList<Email> emails = new ArrayList<>();
         switch (EmailsType) {
             case "Inbox":
@@ -320,9 +360,10 @@ public class Operations {
             default:
                 break;
         }
+        Paggination(EmailsType);
     }
 
-    void Delete(String Type, int Position){
+    void Delete(String Type, int Position) throws IOException {
         ArrayList<Email> emails = new ArrayList<>();
         ArrayList<Email> trash = Logged.getTrash();
         switch (Type) {
@@ -357,10 +398,11 @@ public class Operations {
             default:
                 break;
         }
+        Paggination(Type);
     }
 
-    void Star(String Type, int Position){
-        ArrayList<Email> emails = new ArrayList<>();
+    void Star(String Type, int Position) throws IOException {
+        ArrayList<Email> emails;
         ArrayList<Email> trash = Logged.getTrash();
         switch (Type) {
             case "Inbox":
@@ -384,5 +426,6 @@ public class Operations {
             default:
                 break;
         }
+        Paggination(Type);
     }
 }
