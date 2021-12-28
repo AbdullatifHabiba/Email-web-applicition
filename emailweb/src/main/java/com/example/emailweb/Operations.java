@@ -1,12 +1,16 @@
 package com.example.emailweb;
 
 import com.example.emailweb.converter.*;
+import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -15,15 +19,16 @@ import java.util.Date;
 @RequestMapping("/operate")
 public class Operations {
 
-    static ArrayList<Account> accountslist;
+    static ArrayList<Account> accountslist = new ArrayList<>();
     static Account Logged;
     EmailArraytoJSON EAJ = new EmailArraytoJSON();
+    EmailtoJSON EJ = new EmailtoJSON();
     AccountArraytoJSON AAJ = new AccountArraytoJSON();
     JSONtoAccount JA = new JSONtoAccount();
+    AccounttoJSON AJ = new AccounttoJSON();
     JSONtoArrayAccounts JAA = new JSONtoArrayAccounts();
-    FileWriter fileWriter1 = new FileWriter("accounts.json");
-    FileReader fileReader1 = new FileReader("accounts.json");
-
+    SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
 
     public Operations() throws IOException {
     }
@@ -50,8 +55,9 @@ public class Operations {
         return -1;
     }
 
-    void Save(){
+    void SaveAccounts(){
         try{
+            FileWriter fileWriter1 = new FileWriter("accounts.json");
             fileWriter1.write(AAJ.create(accountslist).toString());
             fileWriter1.flush();
         }
@@ -59,10 +65,31 @@ public class Operations {
         catch (Exception e){ e.printStackTrace(); }
     }
 
-    void Load(){
+    void SaveLogged(){
+        try{
+            FileWriter fileWriter2 = new FileWriter("logged.json");
+            fileWriter2.write(AJ.create(Logged).toString());
+            fileWriter2.flush();
+        }
+        catch (IOException e) {e.printStackTrace(); }
+        catch (Exception e){ e.printStackTrace(); }
+    }
+
+    void LoadAccounts(){
         try {
-            JSONObject JO = new JSONObject(fileReader1);
-            accountslist = JAA.create(JO);
+            FileReader fileReader1 = new FileReader("accounts.json");
+            JSONObject JO1 = new JSONObject(fileReader1);
+            accountslist = JAA.create(JO1);
+        }
+        catch (ParseException e) {e.printStackTrace(); }
+        catch (Exception e) {e.printStackTrace(); }
+    }
+
+    void LoadLogged(){
+        try {
+            FileReader fileReader2 = new FileReader("logged.json");
+            JSONObject JO2 = new JSONObject(fileReader2);
+            Logged = JA.create(JO2);
         }
         catch (ParseException e) {e.printStackTrace(); }
         catch (Exception e) {e.printStackTrace(); }
@@ -80,9 +107,10 @@ public class Operations {
             accountslist.set(i, R);
             i = Acc(Logged.getUserName());
             ArrayList<Email> sent = Logged.getSent();
-            sent.add(M);
+            sent.add(0, M);
             Logged.setSent(sent);
             accountslist.set(i, Logged);
+            return true;
         }
         return false;
     }
@@ -102,9 +130,11 @@ public class Operations {
 
     @GetMapping("/checkregister")
     boolean Regist(@RequestParam String Form) throws ParseException {
-        Load();
+        LoadAccounts();
+        LoadLogged();
         JSONObject JO = new JSONObject(Form);
         if (!Existed(JO.getString("UserName"))) {
+            JO.put("DateOfBirth", sdf1.format(sdf2.parse(JO.getString("DateOfBirth"))));
             JO.put("Sent", EAJ.create(new ArrayList<Email>()));
             JO.put("Inbox", EAJ.create(new ArrayList<Email>()));
             JO.put("Trash", EAJ.create(new ArrayList<Email>()));
@@ -112,9 +142,51 @@ public class Operations {
             JO.put("Drafts", EAJ.create(new ArrayList<Email>()));
             Account Ac = JA.create(JO);
             accountslist.add(Ac);
-            Save();
+            LogIn(Ac.getUserName(), Ac.getPassword());
+            SaveAccounts();
+            SaveLogged();
             return true;
         }
         return false;
+    }
+
+    void paggination(String type) throws IOException {
+        FileWriter fileWriter3 = new FileWriter("emails.json");
+        JSONArray Jarray = new JSONArray();
+        ArrayList<Email> emails = new ArrayList<>();
+        JSONObject JO = new JSONObject();
+        switch (type) {
+            case "Inbox":
+                emails = Logged.getInbox();
+                break;
+            case "Sent":
+                emails = Logged.getSent();
+                break;
+            case "Srarred":
+                emails = Logged.getStarred();
+                break;
+            case "Trash":
+                emails = Logged.getTrash();
+                break;
+            case "Drafts":
+                emails = Logged.getDrafts();
+                break;
+            default:
+                break;
+        }
+        for (int i = 0;i < emails.size() / 5;i++){
+            for (int j = 0;j < 5;j++){
+                Jarray.put(EJ.create(emails.get(5 * i + j)));
+            }
+            JO.put("Page " + (i + 1), Jarray);
+            Jarray.clear();
+        }
+        for (int i = 0;i < emails.size() % 5;i++){
+            Jarray.put(emails.get(5 * emails.size() / 5 + i));
+        }
+        JO.put("Page", (emails.size() / 5 + 1));
+        Jarray.clear();
+        fileWriter3.write(EAJ.create(emails).toString());
+        fileWriter3.flush();
     }
 }
