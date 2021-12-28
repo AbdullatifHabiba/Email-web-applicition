@@ -15,11 +15,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
-@RestController
-@CrossOrigin(origins = "http://localhost:4200/")
-@RequestMapping("/operate")
 public class Operations {
 
     static ArrayList<Account> accountslist = new ArrayList<>();
@@ -106,8 +102,7 @@ public class Operations {
         catch (Exception e) {e.printStackTrace(); }
     }
 
-    @GetMapping("/send")
-    boolean send(@RequestParam("Info") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException, ParseException {
+    boolean Send(String model, MultipartFile file) throws IOException, ParseException {
         JSONObject JO = new JSONObject(model);
         LoadAccounts();
         //LoadLogged();
@@ -132,8 +127,7 @@ public class Operations {
         return false;
     }
 
-    @GetMapping("/checklogin")
-    boolean LogIn(@RequestParam String username, @RequestParam String password){
+    boolean LogIn(String username, String password){
         if (!Existed(username))
             return false;
         Account AC = accountslist.get(Acc(username));
@@ -147,8 +141,7 @@ public class Operations {
             return false;
     }
 
-    @GetMapping("/checkregister")
-    boolean Regist(@RequestParam String Form) throws ParseException {
+    boolean Regist(String Form) throws ParseException {
         LoadAccounts();
         //LoadLogged();
         JSONObject JO = new JSONObject(Form);
