@@ -163,7 +163,7 @@ public class Operations {
         return false;
     }
 
-    void paggination(String Type) throws IOException {
+    void Paggination(String Type) throws IOException {
         FileWriter fileWriter3 = new FileWriter("emails.json");
         JSONArray Jarray = new JSONArray();
         ArrayList<Email> emails = new ArrayList<>();

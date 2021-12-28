@@ -44,4 +44,9 @@ public class Controller {
     void star(@RequestParam String Type, @RequestParam int Position){
         O.Star(Type, Position);
     }
+
+    @GetMapping("/display")
+    void display(@RequestParam String Type) throws IOException {
+        O.Paggination(Type);
+    }
 }
