@@ -21,6 +21,8 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
+output=""
+
 registerform:FormGroup;
 check(){
   let f=this.registerform.get(['register'])?.value;
@@ -28,15 +30,15 @@ check(){
 }
 onSubmit(){
   if(this.registerform.invalid){return;}
-if(this.registerform.valid){
-  let f=this.registerform.get(['register'])?.value;
-  //console.log(this.check())
 
+  let f=this.registerform.get(['register'])?.value;
+ console.log(this.check())
+this.output= this.check.toString();
 if ( this.check()) {
-  //console.log(this.check())
+  console.log(this.check())
 
   this.route.navigateByUrl(`/header/${f.username}`);
 }
-}
+
       }
 }

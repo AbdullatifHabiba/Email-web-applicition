@@ -23,14 +23,13 @@ private urlserver='http://localhost:8080/folder/inbox';
    sent?:SentItemsComponent;
    draft?:DraftsComponent;
    checklogin(username:string,password:string){
-     this.httpclient.get('http://localhost:8080/operate/checklogin',{params:{
+     this.httpclient.get<boolean>('http://localhost:8080/operate/checklogin',{params:{
       username:username,
       password:password
 
     },observe: 'response'}).subscribe(
       (response) => {
         this.result = response.body;
-     //  console.log(this.result)
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -38,11 +37,11 @@ private urlserver='http://localhost:8080/folder/inbox';
     );
     return this.result;
   }
-  makelogin(form:any){
+  makelogin (form:any){
     console.log(form)
     let f=JSON.stringify(form).toString();
 
-     this.httpclient.get('http://localhost:8080/operate/checkregister',{
+     this.httpclient.get<boolean>('http://localhost:8080/operate/checkregister',{
        params:{Form:f},observe: 'response'}).subscribe(
         (response) => {
           this.result = response.body;

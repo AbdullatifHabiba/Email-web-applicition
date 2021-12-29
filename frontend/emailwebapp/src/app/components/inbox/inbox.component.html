@@ -9,11 +9,11 @@
       <li><a routerLink="search" data-toggle="tab"><i class="glyphicon glyphicon-tags"></i>  Rename</a></li>
       <li><a routerLink="Compose"data-toggle="tab"><i class="glyphicon glyphicon-plus no-margin"></i>Add</a></li>
      <li > <label for="Sort" data-toggle="tab" style="display: inline;height: 5px;">Sort</label>
-        <select data-toggle="tab">
-        <option data-toggle="tab">Important</option>
-        <option data-toggle="tab">Date</option>
-        <option data-toggle="tab">Asending</option>
-        <option data-toggle="tab">Desending</option>
+        <select #v data-toggle="tab" (change)="sort(v.value)">
+        <option  data-toggle="tab"  >ImportanceD</option>
+        <option #v2 data-toggle="tab" >DateD</option>
+        <option #v3 data-toggle="tab" >ImportanceA</option>
+        <option  #v4 data-toggle="tab" >DateA</option>
       </select></li>
   </ul>
 

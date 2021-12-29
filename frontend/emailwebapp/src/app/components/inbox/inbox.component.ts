@@ -42,6 +42,11 @@ addimportant(id:number){}
 addstar(id:number){}
 addspam(id:number){}
 deletem(id:number){}
+sort(type:string){
+
+  console.log(type)
+}
+
 
 }
 
