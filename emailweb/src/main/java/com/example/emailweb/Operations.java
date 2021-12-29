@@ -380,7 +380,7 @@ public class Operations {
                 emails = Logged.getInbox();
                 trash.add(emails.get(Position));
                 emails.remove(Position);
-                Logged.setSent(emails);
+                Logged.setInbox(emails);
                 Logged.setTrash(trash);
                 break;
             case "Sent":
@@ -394,14 +394,14 @@ public class Operations {
                 emails = Logged.getStarred();
                 trash.add(emails.get(Position));
                 emails.remove(Position);
-                Logged.setSent(emails);
+                Logged.setStarred(emails);
                 Logged.setTrash(trash);
                 break;
             case "Drafts":
                 emails = Logged.getDrafts();
                 trash.add(emails.get(Position));
                 emails.remove(Position);
-                Logged.setSent(emails);
+                Logged.setDrafts(emails);
                 Logged.setTrash(trash);
                 break;
             default:
@@ -411,25 +411,22 @@ public class Operations {
 
     void Star(String Type, int Position) throws IOException {
         ArrayList<Email> emails;
-        ArrayList<Email> trash = Logged.getTrash();
+        ArrayList<Email> starred = Logged.getTrash();
         switch (Type) {
             case "Inbox":
                 emails = Logged.getInbox();
-                trash.add(emails.get(Position));
-                Logged.setSent(emails);
-                Logged.setTrash(trash);
+                starred.add(emails.get(Position));
+                Logged.setStarred(starred);
                 break;
             case "Sent":
                 emails = Logged.getSent();
-                trash.add(emails.get(Position));
-                Logged.setSent(emails);
-                Logged.setTrash(trash);
+                starred.add(emails.get(Position));
+                Logged.setStarred(starred);
                 break;
             case "Drafts":
                 emails = Logged.getDrafts();
-                trash.add(emails.get(Position));
-                Logged.setSent(emails);
-                Logged.setTrash(trash);
+                starred.add(emails.get(Position));
+                Logged.setStarred(starred);
                 break;
             default:
                 break;
