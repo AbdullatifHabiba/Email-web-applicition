@@ -36,9 +36,11 @@ adduser(){
 }
 Delete(i:number){
   this.Users=this.Users.slice(1,i+1)
+  this.controller.delete(i,"Contact");
 }
-edit(){
-
+edit(i:number){
+this.Delete(i);
+this.add();
 }
 
 }

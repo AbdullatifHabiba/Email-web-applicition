@@ -9,38 +9,48 @@ import { Email } from '../Email';
 })
 export class DraftsComponent implements OnInit {
 
-
-
-
   ngOnInit() {
+    this.controll.getemails(this.page,"Drafts").subscribe(emails => this.DraftEmails = emails)
+    this.DraftEmails=[{to:"ahmed",from:"ahmed",subject:"ahmed"}]
+   this.elenum=(this.DraftEmails).length;
+    }
+    DraftEmails?:any=[];
 
-  }
+    page:number=1;
+
+    size:number=5;
+    elenum:number=10;
+
+    constructor(private controll:ComponentscontrollerService) {
+    }
+
+    getsentEmails(){
+    }
+    clippage(){
+      this.controll.getemails(this.page,"Drafts").subscribe(emails => this.DraftEmails = emails)
+
+    }
+
+    addstar(id:number){
+      this.controll.star(id,"Inbox")
+
+    }
+    deletem(id:number){
+      this.controll.delete(id,"Inbox")
+
+    }
+    sort(type:string){
+
+    this.controll.Sort(type,"Inbox")
+
+    }
+     checkarray=new Array<any>();
+
+    addcheck(id:number,ch:string){
+       const item ={id:id,ch:ch}
+      this. checkarray.push(item);
+    }
 
 
-  Draftitems=[
- /* {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"hello",Subject:"Yourhealth"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"hello",Subject:"Yourhealth"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"hello",Subject:"Yourhealth"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"hello",Subject:"Yourhealth"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"hello",Subject:"Yourhealth"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"hello",Subject:"Yourhealth"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"hello",Subject:"Yourhealth"},
-*/
-
-]
-page:number=1;
-size:number=5;
-elenum:number;
-DraftEmails:Email[];
-
-constructor(private controll:ComponentscontrollerService) {
-  this.DraftEmails=this.controll.draftEmails;
-this.elenum=this.DraftEmails.length
-  console.log(this.DraftEmails)
-}
-
-getDraftEmails(){
-}
-clippage(){}
 }
 

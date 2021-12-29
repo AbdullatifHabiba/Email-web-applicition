@@ -30,13 +30,12 @@ check(){
 }
 onSubmit(){
   if(this.registerform.invalid){return;}
+  this.output="   False"
 
   let f=this.registerform.get(['register'])?.value;
- console.log(this.check())
-this.output= this.check.toString();
 if ( this.check()) {
   console.log(this.check())
-
+  this.output="   true"
   this.route.navigateByUrl(`/header/${f.username}`);
 }
 

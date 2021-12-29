@@ -38,23 +38,22 @@ export class ResolveService implements Resolve<Email> {
   }
 
   getinboxemail(index:number){
-    const list=new InboxComponent(this.emailService).list;
-    return list[index];
+    return this.emailService.getemaildetails(index,"Inbox");
   }
   gettrashemail(index:number){
-    const list=new TrashComponent(this.emailService).list;
-    return list[index];
+    return this.emailService.getemaildetails(index,"Trash");
+
   }
   getstaremail(index:number){
-    const list=new StarredComponent(this.emailService).Sentemails;
-    return list[index];
+    return this.emailService.getemaildetails(index,"Starred");
+
   }
   getdraftemail(index:number){
-    const list=new DraftsComponent(this.emailService).DraftEmails;
-    return list[index];
+    return this.emailService.getemaildetails(index,"Drafts");
+
   }
   getsentemails(index:number){
-    const list=new SentItemsComponent(this.emailService).Sentemails;
-    return list[index];
+    return this.emailService.getemaildetails(index,"Sent");
+
   }
 }

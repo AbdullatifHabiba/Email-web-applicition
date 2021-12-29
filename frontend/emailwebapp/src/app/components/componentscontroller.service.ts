@@ -3,7 +3,7 @@ import { SentItemsComponent } from './SentItems/SentItems.component';
 import { Email } from './Email';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { map } from 'rxjs';
 import { DraftsComponent } from './Drafts/Drafts.component';
 
@@ -22,7 +22,7 @@ private urlserver='http://localhost:8080/folder/inbox';
   result:any;
    sent?:SentItemsComponent;
    draft?:DraftsComponent;
-   checklogin(username:string,password:string){
+   checklogin(username:string,password:string):Observable<boolean>{
      this.httpclient.get<boolean>('http://localhost:8080/operate/checklogin',{params:{
       username:username,
       password:password
@@ -37,7 +37,7 @@ private urlserver='http://localhost:8080/folder/inbox';
     );
     return this.result;
   }
-  makelogin (form:any){
+  makelogin (form:any):Observable<boolean>{
     console.log(form)
     let f=JSON.stringify(form).toString();
 
@@ -57,43 +57,62 @@ private urlserver='http://localhost:8080/folder/inbox';
 
   postemail(email:FormData){
 
-
-
     return this.httpclient.post('http://localhost:8080/operate/send',email).subscribe(
       (res) => console.log(res),
       (err) => console.log(err)
     );
-    //).subscribe(
-    //     (response) => {
-    //       this.result = response;
-    //      console.log(this.result)
-    //     //this.sent?.Sentemails.push(this.result);
-    //     },
-    //     (error: HttpErrorResponse) => {
-    //       alert(error.message);
-    //     }
-    //   );
+
   }
+
   setdraft(email:FormData){
-    this.draftEmails.push(email);
     console.log(email)
 
-    return this.httpclient.post('http://localhost:8080/operate/draft',email);
+    return this.httpclient.post('http://localhost:8080/operate/draft',email).subscribe(
+      (res) => console.log(res),
+      (err) => console.log(err)
+    );
 
     }
 
- getinbox(page:number):Observable<Email[]>
+ getemails(page:number,folder:string)
   {
-    return this.httpclient
-      .get<Email[]>(this.urlserver+`?page+${page}`).pipe(map(response=>response))
+    return this.httpclient.get('http://localhost:8080/operate/displayemails',{params:{
+      Page:page,
+      Type:folder
+
+    },observe: 'response'});
 
   }
 
 
-getemaildetails(id:number):Observable<Email>{
-  return this.httpclient
-    .get<Email>(this.urlserver + `?index=${id}`).pipe(map(response => response));
+getemaildetails(id:number,type:string){
+  return this.httpclient.get('http://localhost:8080/operate/displayemails',{params:{
+      Position:id,
+      Type:type
+
+    },observe: 'response'})
 }
+delete(id:number,type:string){
+  return this.httpclient.get('http://localhost:8080/operate/delete',{params:{
+      Position:id,
+      Type:type
+
+    },observe: 'response'})
+}
+star(id:number,type:string){
+  return this.httpclient.get('http://localhost:8080/operate/star',{params:{
+      Position:id,
+      Type:type
+
+    },observe: 'response'})
+}
+Sort(type:string,emailstype:string){
+  return this.httpclient.get('http://localhost:8080/operate/',{params:{
+      Type:type,
+      EmailsType:emailstype
+    },observe: 'response'})
+}
+
 
 
 }

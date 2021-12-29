@@ -7,10 +7,13 @@
 
 #login .container #login-row #login-column #login-box {
   margin-top: 120px;
-  max-width: 600px;
-  height: fit-content;
-  border: 1px solid #680ba7;
-  background-color: #EAEAEA;
+    max-width: 600px;
+    position: absolute;
+    left: 338px;
+    height: -moz-fit-content;
+    height: fit-content;
+    border: 1px solid #680ba7;
+    background-color: #0f0440;
 }
 #login .container #login-row #login-column #login-box #login-form {
   padding: 20px;

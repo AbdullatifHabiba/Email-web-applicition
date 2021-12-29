@@ -6,7 +6,8 @@ import org.json.JSONObject;
 import java.text.SimpleDateFormat;
 
 public class EmailtoJSON implements Converter<JSONObject, Email>{
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss ");
+
+    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     @Override
     public JSONObject create(Email E) throws JSONException {

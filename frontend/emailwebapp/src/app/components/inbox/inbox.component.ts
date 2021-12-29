@@ -11,42 +11,47 @@ import { ComponentscontrollerService } from '../componentscontroller.service';
 })
 export class InboxComponent implements OnInit  {
 
-list:any=[
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"nnnn",Subject:"Yourhealth"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmcvcvved",body:"helvvvlo",Subject:"jhjhh"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmmed",body:"hvvvello",Subject:"nvnbb"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmeed",body:"hello",Subject:"Yourmnmhealth"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmeeeed",body:"hellvvvo",Subject:"nbnnn"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Adshmed",body:"helhhhlo",Subject:"mmmnnmm"},
-  {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmeeed",body:"hellhjjjo",Subject:"Yourmjmnmmhealth"},
+  ngOnInit() {
+    this.controll.getemails(this.page,"sent").subscribe(emails => this.inboxemails = emails)
 
+   this.elenum=(this.inboxemails).length;
+    }
+    inboxemails?:any=[];
 
-]
-page:number=1;
-size:number=5;
-elenum:number=this.list.length;
+    page:number=1;
 
-constructor(private controll:ComponentscontrollerService,) { }
+    size:number=5;
+    elenum:number=10;
 
-ngOnInit(): void {}
-InboxEmails:Array<Email>=[];
-getinbox(){
-this.InboxEmails=this.controll.InboxEmails;
+    constructor(private controll:ComponentscontrollerService) {
+    }
+
+    getsentEmails(){
+    }
+    clippage(){
+      this.controll.getemails(this.page,"Sent").subscribe(emails => this.inboxemails = emails)
+
+    }
+
+addstar(id:number){
+  this.controll.star(id,"Inbox")
+
 }
-clippage(){}
+deletem(id:number){
+  this.controll.delete(id,"Inbox")
 
-getemail(id:number){
-this.controll.getemaildetails(id);
 }
-addimportant(id:number){}
-addstar(id:number){}
-addspam(id:number){}
-deletem(id:number){}
 sort(type:string){
 
-  console.log(type)
-}
+this.controll.Sort(type,"Inbox")
 
+}
+checkarray=new Array<any>();
+
+    addcheck(id:number,ch:string){
+       const item ={id:id,ch:ch}
+      this. checkarray.push(item);
+    }
 
 }
 

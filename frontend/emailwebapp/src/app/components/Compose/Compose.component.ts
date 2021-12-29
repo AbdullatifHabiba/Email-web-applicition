@@ -60,6 +60,7 @@ sendemail(){
   this.formData.append( 'Info', JSON.stringify( this.ReqJson ) )
   console.log(this.formData.get('Info'),this.formData.get('file'))
   console.log(this.controller.postemail(this.formData));
+  
 
 }
 uploadFile(e: any) {

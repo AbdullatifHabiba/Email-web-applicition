@@ -1,6 +1,6 @@
 <div class="btn-group"  id="contact">
 
-    <button type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-plus no-margin" (click)="add()"></i></button>
+    <button type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-plus no-margin" (click)="add()">AddContact</i></button>
 </div>
 
 <div id="login"  *ngIf="addone">
@@ -39,11 +39,12 @@
         <tr  of *ngFor="let item of Users ;let i =index" >
           <a    class="list-group-item"  >
 
-            <button type="button" class="btn btn-default btn" (click)="edit()"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn" (click)="edit(i)"><i class="glyphicon glyphicon-pencil"></i></button>
             <button type="button" class="btn btn-default btn" (click)="Delete(i)"><i class="glyphicon glyphicon-trash"></i></button>
 
          <span class="name" style="min-width: 120px;
           display: inline-block;">{{item.name}}</span> <span class="name">{{item.usernames}}</span>
+          <span class="glyphicon glyphicon-user"></span>
              </a>
 
 

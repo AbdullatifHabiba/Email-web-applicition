@@ -9,23 +9,41 @@ import { Email } from '../Email';
 })
 export class StarredComponent implements OnInit {
 
-  Sentemails:Email[];
+  ngOnInit() {
+    this.controll.getemails(this.page,"sent").subscribe(emails => this.starremails = emails)
 
-  page:number=1;
+   this.elenum=(this.starremails).length;
+    }
+    starremails?:any=[];
 
-  size:number=5;
-  elenum:number;
+    page:number=1;
 
-  constructor(private controll:ComponentscontrollerService) {
-    this.Sentemails=this.controll.draftEmails;
-  this.elenum=this.Sentemails.length
-    console.log(this.Sentemails)
-  }
-  ngOnInit(): void {
-  }
+    size:number=5;
+    elenum:number=10;
 
-  getDraftEmails(){
-  }
-  clippage(){}
+    constructor(private controll:ComponentscontrollerService) {
+    }
+
+    getsentEmails(){
+    }
+    clippage(){
+      this.controll.getemails(this.page,"Sent").subscribe(emails => this.starremails = emails)
+
+    }
+addimportant(id:number){}
+addstar(id:number){}
+addspam(id:number){}
+deletem(id:number){}
+sort(type:string){
+
+  console.log(type)
+}
+checkarray=new Array<any>();
+
+    addcheck(id:number,ch:string){
+       const item ={id:id,ch:ch}
+      this. checkarray.push(item);
+    }
+
 
 }

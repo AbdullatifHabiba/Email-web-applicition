@@ -8,35 +8,46 @@ import { Email } from '../Email';
   styleUrls: ['./Trash.component.css']
 })
 export class TrashComponent implements OnInit {
-
-  Trashemails:Email[];
-
-  page:number=1;
-
-  size:number=5;
-  elenum:number;
-
-  constructor(private controll:ComponentscontrollerService) {
-    this.Trashemails=this.controll.draftEmails;
-  this.elenum=this.Trashemails.length
-    console.log(this.Trashemails)
-  }
-  list=[
-    {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmed",body:"nnnn",Subject:"Yourhealth"},
-    {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmcvcvved",body:"helvvvlo",Subject:"jhjhh"},
-    {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmmed",body:"hvvvello",Subject:"nvnbb"},
-    {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmeed",body:"hello",Subject:"Yourmnmhealth"},
-    {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmeeeed",body:"hellvvvo",Subject:"nbnnn"},
-    {name:"Ahmed",time:"5:54Am",to:"ali",from:"Adshmed",body:"helhhhlo",Subject:"mmmnnmm"},
-    {name:"Ahmed",time:"5:54Am",to:"ali",from:"Ahmeeed",body:"hellhjjjo",Subject:"Yourmjmnmmhealth"},
-
-
-  ]
-  getTrashemailsEmails(){
-  }
-  clippage(){}
-
   ngOnInit() {
-  }
+    this.controll.getemails(this.page,"sent").subscribe(emails => this.trashemails = emails)
 
+   this.elenum=(this.trashemails).length;
+    }
+    trashemails?:any=[];
+
+    page:number=1;
+
+    size:number=5;
+    elenum:number=10;
+
+    constructor(private controll:ComponentscontrollerService) {
+    }
+
+    getsentEmails(){
+    }
+    clippage(){
+      this.controll.getemails(this.page,"Sent").subscribe(emails => this.trashemails = emails)
+
+    }
+
+    addstar(id:number){
+      this.controll.star(id,"Inbox")
+
+    }
+    deletem(id:number){
+      this.controll.delete(id,"Inbox")
+
+    }
+    sort(type:string){
+
+    this.controll.Sort(type,"Inbox")
+
+    }
+
+    checkarray=new Array<any>();
+
+    addcheck(id:number,ch:string){
+       const item ={id:id,ch:ch}
+      this. checkarray.push(item);
+    }
 }

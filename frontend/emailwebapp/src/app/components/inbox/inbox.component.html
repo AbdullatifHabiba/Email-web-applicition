@@ -22,13 +22,17 @@
           <div class="list-group" >
           <table style="width: 600px;">
             <tbody>
-              <tr  of *ngFor="let item of list ;let id =index" >
+              <tr  of *ngFor="let item of inboxemails ;let id =index" >
                 <a    class="list-group-item"  [routerLink]="id.toString()">
 
-                    <label>
-                        <input type="checkbox"  >
-                    </label>
-                    <span class="glyphicon glyphicon-star-empty">  </span>
+                  <label>
+                    <input type="checkbox" #ch (change)="addcheck(id,ch.value)">
+                </label>
+                <button type="button" class="btn btn-default btn" (click)="deletem(id)"><i class="glyphicon glyphicon-trash"></i></button>
+
+                <button type="button" class="btn btn-default btn"  (click)="addstar(id)"><i class="glyphicon glyphicon-star-empty" >  </i></button>
+
+
 
 
                <span class="name" style="min-width: 120px;

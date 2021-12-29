@@ -9,12 +9,13 @@
       <li><a routerLink="search" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>  Rename</a></li>
       <li><a routerLink="Compose"data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin"></span>Add</a></li>
      <li > <label for="Sort" data-toggle="tab" style="display: inline;height: 5px;">Sort</label>
-        <select data-toggle="tab">
-        <option data-toggle="tab">Important</option>
-        <option data-toggle="tab">Date</option>
-        <option data-toggle="tab">Asending</option>
-        <option data-toggle="tab">Desending</option>
-      </select></li>
+      <select #v data-toggle="tab" (change)="sort(v.value)">
+        <option  data-toggle="tab"  >ImportanceD</option>
+        <option #v2 data-toggle="tab" >DateD</option>
+        <option #v3 data-toggle="tab" >ImportanceA</option>
+        <option  #v4 data-toggle="tab" >DateA</option>
+      </select>
+    </li>
   </ul>
 
   <div class="tab-content">
@@ -26,15 +27,17 @@
                 <a    class="list-group-item"  [routerLink]="id.toString()">
 
                     <label>
-                        <input type="checkbox"  >
+                        <input type="checkbox" #ch (change)="addcheck(id,ch.value)">
                     </label>
-                    <span class="glyphicon glyphicon-star-empty">  </span>
+                    <button type="button" class="btn btn-default btn" (click)="deletem(id)"><i class="glyphicon glyphicon-trash"></i></button>
+
+                    <button type="button" class="btn btn-default btn"  (click)="addstar(id)"><i class="glyphicon glyphicon-star-empty" >  </i></button>
 
 
                <span class="name" style="min-width: 120px;
-                display: inline-block;">{{item.from}}</span> <span class="">{{item.Subject}}</span>
+                display: inline-block;">{{item.from}}</span> <span class="">{{item.subject}}</span>
             <span class="text-muted" style="font-size: 11px;"> {{item.body}} </span> <span
-                class="badge">{{item.time}}</span> <span class="pull-right">
+                class="badge">{{item.date}}</span> <span class="pull-right">
              </span></a>
 
 
