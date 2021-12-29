@@ -3,7 +3,6 @@ package com.example.emailweb.converter;
 import com.example.emailweb.Account;
 import org.json.JSONException;
 import org.json.simple.JSONObject;
-
 import java.text.ParseException;
 import java.util.ArrayList;
 

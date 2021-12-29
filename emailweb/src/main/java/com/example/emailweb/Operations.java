@@ -204,27 +204,27 @@ public class Operations {
             subemails.add(emails.get(5 * (emails.size() / 5) + i));
         }
         JO.put("Page" + (emails.size() / 5 + 1), EAJ.create(subemails).toString());
-        try {
-            FileWriter fileWriter3 = new FileWriter("emails.json");
-            fileWriter3.write(JO.toString());
-            fileWriter3.flush();
+        try (FileWriter fileWriter1 = new FileWriter("emails.json"))
+        {
+            fileWriter1.write(JO.toString());
+            fileWriter1.flush();
         }
         catch (IOException e) {e.printStackTrace(); }
-        catch (Exception e){ e.printStackTrace(); }
+
     }
 
     ArrayList<Email> DisplayEmails(String Type, int Page) throws IOException, ParseException, java.text.ParseException {
         Paggination(Type);
-        JSONObject Jobj;
         ArrayList<Email> emails = new ArrayList<>();
-        try(FileReader fileReader = new FileReader("emails.json"))
+        try (FileReader fileReader = new  FileReader("emails.json"))
         {
-        JSONObject JO = (JSONObject) jsonParser.parse(fileReader);
-        Jobj = (JSONObject) JO.get("Page" + Page);
-        emails = JEA.create(Jobj);
-    }
-        catch (ParseException e) {e.printStackTrace(); }
-        catch (Exception e) {e.printStackTrace(); }
+            Object obj = jsonParser.parse(fileReader);
+            JSONObject J = (JSONObject) obj;
+            emails = JEA.create(J);
+        }
+        catch (FileNotFoundException e) { e.printStackTrace(); }
+        catch (IOException e) { e.printStackTrace(); }
+        catch (ParseException e) { e.printStackTrace(); }
         return emails;
     }
 
@@ -238,7 +238,7 @@ public class Operations {
             case "Sent":
                 email = Logged.getSent().get(Position);
                 return email;
-            case "Srarred":
+            case "Starred":
                 email = Logged.getStarred().get(Position);
                 return email;
             case "Trash":
