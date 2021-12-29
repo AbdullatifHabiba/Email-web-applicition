@@ -15,7 +15,7 @@ class ControllerTest {
     Operations o = mock(Operations.class);
 
     @Test
-    void send() throws JSONException, ParseException, IOException {
+    void send() throws JSONException, ParseException, IOException, org.json.simple.parser.ParseException {
         Operations o = mock(Operations.class);
         JSONObject JO = new JSONObject();
         JO.put("Name","Ahmed");
@@ -78,7 +78,7 @@ class ControllerTest {
     }
 
     @Test
-    void login() throws JSONException, ParseException {
+    void login() throws JSONException, ParseException, org.json.simple.parser.ParseException {
         JSONObject JO = new JSONObject();
         JO.put("Name","Ahmed");
         JO.put("UserName","ahmed");
@@ -95,7 +95,7 @@ class ControllerTest {
     }
 
     @Test
-    void regist() throws JSONException, ParseException {
+    void regist() throws JSONException, ParseException, org.json.simple.parser.ParseException {
         JSONObject JO = new JSONObject();
         JO.put("Name","Ahmed");
         JO.put("UserName","ahmed");
@@ -111,7 +111,7 @@ class ControllerTest {
     }
 
     @Test
-    void delete() throws IOException, ParseException, JSONException {
+    void delete() throws IOException, ParseException, JSONException, org.json.simple.parser.ParseException {
         JSONObject JO = new JSONObject();
         JO.put("Name","Ahmed");
         JO.put("UserName","ahmed");
@@ -174,7 +174,7 @@ class ControllerTest {
     }
 
     @Test
-    void sort() throws IOException, ParseException, JSONException {
+    void sort() throws IOException, ParseException, JSONException, org.json.simple.parser.ParseException {
         JSONObject JO = new JSONObject();
         JO.put("Name","Ahmed");
         JO.put("UserName","ahmed");
@@ -237,7 +237,7 @@ class ControllerTest {
     }
 
     @Test
-    void star() throws IOException, ParseException, JSONException {
+    void star() throws IOException, ParseException, JSONException, org.json.simple.parser.ParseException {
         JSONObject JO = new JSONObject();
         JO.put("Name","Ahmed");
         JO.put("UserName","ahmed");

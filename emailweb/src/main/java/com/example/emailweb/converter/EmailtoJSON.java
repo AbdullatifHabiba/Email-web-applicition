@@ -2,7 +2,8 @@ package com.example.emailweb.converter;
 
 import com.example.emailweb.Email;
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
+
 import java.text.SimpleDateFormat;
 
 public class EmailtoJSON implements Converter<JSONObject, Email>{

@@ -12,12 +12,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Testing {
 
-    public static void main(String[] args) throws ParseException, IOException {
+    public static void main(String[] args) throws ParseException, IOException, org.json.simple.parser.ParseException {
         Operations o = new Operations();
-        JSONObject JO = new JSONObject();
+        /*JSONObject JO = new JSONObject();
         JO.put("Name","Ahmed");
         JO.put("UserName","ahmed");
         JO.put("Password","1234567");
@@ -34,7 +35,7 @@ public class Testing {
         JO.put("Object","Hi");
         JO.put("Body","How are U?");
         JO.put("Importance","0");
-        o.Send(JO.toString(), new MultipartFile() {
+        /*o.Send(JO.toString(), new MultipartFile() {
             @Override
             public String getName() {
                 return null;
@@ -75,8 +76,20 @@ public class Testing {
 
             }
         });
+        o.accountslist.clear();
+        o.LoadAccounts();
         System.out.println(o.accountslist.get(1).getSent().get(0).getObject());
-        o.DisplayEmail("Sent", 0);
-        //o.LogIn("ahmed", "1234567");
+        //o.DisplayEmail("Sent", 0);
+        JO.put("Name","Mohamed 2");
+        JO.put("UserName","mohamed");
+        JO.put("Password","0000000");
+        JO.put("DateOfBirth","2006-02-15");
+        System.out.println(o.Regist(JO.toString()));
+        o.LogIn("ahmed", "1234567");
+        System.out.println(o.accountslist.get(1).getDateOfBirth());*/
+        o.Logged = new Account("A", "B", "C", new Date(), new ArrayList<Email>(), new ArrayList<Email>(), new ArrayList<Email>(), new ArrayList<Email>(), new ArrayList<Email>(), new ArrayList<Contact>());
+        System.out.println(o.Logged.getName());
+        o.SaveLogged();
+        System.out.println(o.Logged.getName());
     }
 }
