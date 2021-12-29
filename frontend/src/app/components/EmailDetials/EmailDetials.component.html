@@ -1,0 +1,17 @@
+<div id="emailview">
+
+<div *ngIf="email">
+  <div>
+    <h3> {{ email.Subject}}</h3>
+
+    <div>
+      From: <i>{{ email.from }}</i>
+    </div>
+
+    <div>
+      To: {{ email.to }}
+    </div>
+    <div [innerHTML]="email.body">
+    </div>
+  </div>
+</div>

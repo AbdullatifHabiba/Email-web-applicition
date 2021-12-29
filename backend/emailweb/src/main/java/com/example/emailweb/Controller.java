@@ -22,21 +22,17 @@ public class Controller {
 
     @PostMapping ("/send")
 
-    boolean send(@RequestParam("Info") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException, ParseException {
+    boolean send(@RequestParam("Info") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException, ParseException, org.json.simple.parser.ParseException {
         return O.Send(model, file);
     }
-    @PostMapping ("/draft")
 
-    boolean draft(@RequestParam("Info") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException, ParseException {
-        return O.Send(model, file);
-    }
     @GetMapping("/checklogin")
-    boolean login(@RequestParam String username, @RequestParam String password){
+    boolean login(@RequestParam String username, @RequestParam String password) throws ParseException {
         return O.LogIn(username, password);
     }
 
     @GetMapping("/checkregister")
-    boolean regist(@RequestParam String Form) throws ParseException {
+    boolean regist(@RequestParam String Form) throws ParseException, org.json.simple.parser.ParseException {
         return O.Regist(Form);
     }
 
@@ -56,7 +52,7 @@ public class Controller {
     }
 
     @GetMapping("/displayemails")
-    ArrayList<Email> displayemsils(@RequestParam String Type, @RequestParam int Page) throws IOException {
+    ArrayList<Email> displayemsils(@RequestParam String Type, @RequestParam int Page) throws IOException, ParseException, org.json.simple.parser.ParseException {
         return O.DisplayEmails(Type, Page);
     }
 

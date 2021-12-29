@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "DateOfBirth": {
+      "type": "string"
+    },
+    "UserName": {
+      "type": "string"
+    },
+    "Contacts": {
+      "type": "object"
+    },
+    "Starred": {
+      "type": "object"
+    },
+    "Trash": {
+      "type": "object"
+    },
+    "Inbox": {
+      "type": "object"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Password": {
+      "type": "string"
+    },
+    "Sent": {
+      "type": "object"
+    },
+    "Drafts": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "DateOfBirth",
+    "UserName",
+    "Contacts",
+    "Starred",
+    "Trash",
+    "Inbox",
+    "Name",
+    "Password",
+    "Sent",
+    "Drafts"
+  ]
+}

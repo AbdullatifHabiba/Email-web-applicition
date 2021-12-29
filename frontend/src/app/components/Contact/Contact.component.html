@@ -1,0 +1,57 @@
+<div class="btn-group"  id="contact">
+
+    <button type="button" class="btn btn-default btn"><i class="glyphicon glyphicon-plus no-margin" (click)="add()">AddContact</i></button>
+</div>
+
+<div id="login"  *ngIf="addone">
+  <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+          <div id="login-column" class="col-md-6">
+              <div id="login-box" class="col-md-12">
+                  <form id="login-form" class="form" [formGroup]="contact" (ngSubmit)="adduser()">
+                    <div formGroupName="contact">
+                      <h3 class="text-center text-info">add</h3>
+
+
+                      <div class="form-group">
+                          <label for="Name" class="text-info">Name:</label><br>
+                          <input type="text" name="Name" id="password" formControlName="Name" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label for="username" class="text-info">username:</label><br>
+                        <input type="text" name="username" id="username" formControlName="usernames" class="form-control" >
+                    </div>
+                      <div class="form-group">
+                          <button type="submit" name="submit" class="btn btn-info btn-md"   >add</button>
+
+                      </div>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div>
+  <div class="list-group" id="table" >
+    <table style="width: 600px;">
+      <tbody>
+        <tr  of *ngFor="let item of Users ;let i =index" >
+          <a    class="list-group-item"  >
+
+            <button type="button" class="btn btn-default btn" (click)="edit(i)"><i class="glyphicon glyphicon-pencil"></i></button>
+            <button type="button" class="btn btn-default btn" (click)="Delete(i)"><i class="glyphicon glyphicon-trash"></i></button>
+
+         <span class="name" style="min-width: 120px;
+          display: inline-block;">{{item.name}}</span> <span class="name">{{item.usernames}}</span>
+          <span class="glyphicon glyphicon-user"></span>
+             </a>
+
+
+        </tr>
+      </tbody>
+
+    </table>
+
+    </div>
+</div>
