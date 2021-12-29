@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { ComponentscontrollerService } from './../componentscontroller.service';
 import { FormGroup,FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -9,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private frb:FormBuilder,private controller:ComponentscontrollerService) {
+  constructor(private frb:FormBuilder,private controller:ComponentscontrollerService,private route:Router) {
     this.registerform=frb.group({ register:this.frb.group({
       username:['',[Validators.required]],
       password:['',[Validators.required]],
@@ -25,5 +26,17 @@ check(){
   let f=this.registerform.get(['register'])?.value;
  return this.controller.checklogin(f.username,f.password)
 }
-onSubmit(){}
+onSubmit(){
+  if(this.registerform.invalid){return;}
+if(this.registerform.valid){
+  let f=this.registerform.get(['register'])?.value;
+  //console.log(this.check())
+
+if ( this.check()) {
+  //console.log(this.check())
+
+  this.route.navigateByUrl(`/header/${f.username}`);
+}
+}
+      }
 }

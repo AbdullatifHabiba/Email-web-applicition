@@ -1,19 +1,42 @@
-<form   [formGroup]="form">
+<form   [formGroup]="form"  >
+
+
   <div class="form" formGroupName="form">
   <div class="inpus" >
+
     <button  class="to">To</button><input formControlName="to" class="bx" type="email"><br>
     <button  class="to">From</button><input formControlName="from" class="bx" type="email"><br>
     <button  class="to">Subject </button><input formControlName="subject" class="bx" type="text"><br>
-  </div>
-  <div class="message">
-      <textarea class="message" type="text" [defaultValue]="default" formControlName="body">
+    <button  class="to">Importance </button>
+    <select  formControlName="importance" class="bx" >
 
-      </textarea>
-        <div class="form-group">
-          <input type="file" (change)="uploadFile($event.target)" formControlName="file">
-      </div>
+      <option>4</option> <option>3</option> <option>2</option> <option>1</option>
+
+    </select><br>
+
   </div>
+  <p-editor formControlName="body" [style]="{'height':'200px'}"></p-editor>
+
+  <!--<button pButton type="button" label="Clear" icon="pi pi-times" >clear</button>-->
+  <div class="form-group">
+    <label for="file">File</label>
+    <input
+        formControlName="file"
+        id="file"
+        type="file"
+        class="form-control"
+        multiple="multiple"
+        (change)="uploadFile($event.target)">
+
+</div>
+
   <button id="sub" type="submit" (click)="sendemail()">Submit</button>
+  <button id="draft" type="button" (click)="draft()">Draft</button>
+
+  <!-- <button style="margin-top: 50px;" class="close"
+  type="button" data-dismiss="form" (click)="ngOnDestroy()"><span aria-hidden="true">&times;</span></button> -->
+
+
   </div>
 </form>
 

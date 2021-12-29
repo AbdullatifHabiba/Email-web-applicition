@@ -1,13 +1,13 @@
 .form
 {
   width: 500px;
-  height: 500px;
-  background-color: #a94442;
+  height: 540px;
+  background-color: #f4f4f4;
   position: absolute;
   margin-bottom: 50px;
   margin-left: 100;
-  left: 880px;
-  top: 160px;
+  left: 300px;
+  top: 50px;
   box-shadow: 0px 0px 0px 5px #a99f42;
   resize: both;
 
@@ -16,7 +16,7 @@
 
 
 .inpus{
-  background-color: bisque;
+  background-color: #6828a3;
   border: 10px;
 }
 input.bx {
@@ -31,14 +31,14 @@ button.to{
   font-family: monospace;
   width: 112px;
   height: 40px;
-  background: cornsilk;}
-  
+  background: #6828a3;}
+
   textarea.message{
     resize: none;
 box-sizing: border-box;
-  padding: 10px;
-    margin: -1px 0 0;
-    height: 300px;
+padding: 1px;
+margin: 5px 0 0;
+height: 10px;
     line-height: 1.3;
     width: 100%;
     font-family: var(--ff-mono);
@@ -48,17 +48,28 @@ box-sizing: border-box;
     tab-size: 4;
 
 }
-#sub{
-  width: 100%;
-  position: absolute;
-padding: 7px;
+#sub,#draft{
+  display: inline;
+  width: 50%;
+  position: initial;
+padding: 5px;
 border-radius: 10px;
-bottom: 0px;
-background-color: aqua;
+margin-bottom: 5px;
+background-color: rgb(48, 18, 185);
 font-size: 20px;
 }
+#draft{
+  background-color: rgb(97, 59, 44);
+  color: rgb(116, 20, 20);
+
+}
+:hover #draft{
+  background-color: rgb(92, 32, 87);
+color: rgb(36, 37, 9);
+font-size: large;
+}
 :hover #sub{
-  background-color: rgb(91, 65, 238);
-color: rgb(20, 16, 241);
+  background-color: rgb(3, 54, 18);
+color: rgb(208, 223, 2);
 font-size: large;
 }

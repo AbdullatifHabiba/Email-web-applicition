@@ -11,12 +11,13 @@ public class JSONtoEmail implements Converter<Email, JSONObject>{
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
 
     @Override
-    public Email create(JSONObject J) throws JSONException, ParseException {
-        Email temp = new Email(J.getString("Object"),
-                J.getString("body"),
-                J.getString("from"),
-                J.getString("to"),
-                sdf.parse(J.getString("Date")));
+    public Email create(JSONObject JO) throws JSONException, ParseException {
+        Email temp = new Email(JO.getString("Object"),
+                JO.getString("Body"),
+                JO.getString("From"),
+                JO.getString("To"),
+                sdf.parse(JO.getString("Date")),
+                JO.getInt("Importance"));
         return temp;
     }
 }

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="14dafddd-a729-463a-b9ee-4ba0c4635461" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/emailweb/accounts.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/emails.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/logged.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Contact.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Testing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/ContactArraytoJSON.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/ContacttoJSON.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoAccountArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoContact.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoContactArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/sorting/SortByDateA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/sorting/SortByDateD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/sorting/SortByImportanceA.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/sorting/SortByImportanceD.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/sorting/Sorter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_13_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_11_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_11_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_2_4_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_4_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_14_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_14_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_55.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_55.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_55.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_21_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_4_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_4_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_3_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_22.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_32.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_32.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_devtools_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_security_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_config_5_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_core_5_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_crypto_5_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_test_5_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_security_spring_security_web_5_6_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_3_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_8_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_29.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/.mvn/wrapper/MavenWrapperDownloader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/out/production/.mvn/MavenWrapperDownloader$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/out/production/.mvn/MavenWrapperDownloader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/out/production/.mvn/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/out/production/.mvn/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/EmailwebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/EmailwebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/JSONFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/MainData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Operations.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/Operations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/AccountArraytoJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/AccountArraytoJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/AccounttoJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/AccounttoJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/EmailArraytoJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/EmailArraytoJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/EmailtoJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/EmailtoJSON.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoEmailArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/emailweb/src/main/java/com/example/emailweb/converter/JSONtoEmailArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/angular.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Compose/Compose.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Compose/Compose.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Compose/Compose.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Compose/Compose.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Compose/Compose.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Compose/Compose.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Drafts/Drafts.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Drafts/Drafts.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Drafts/Drafts.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Drafts/Drafts.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Email.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Email.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/SentItems/SentItems.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/SentItems/SentItems.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/SentItems/SentItems.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/SentItems/SentItems.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Starred/Starred.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Starred/Starred.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Starred/Starred.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Starred/Starred.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Trash/Trash.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Trash/Trash.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Trash/Trash.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/Trash/Trash.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/componentscontroller.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/componentscontroller.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/header/header.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/header/header.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/header/header.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/header/header.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/inbox/inbox.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/inbox/inbox.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/inbox/inbox.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/inbox/inbox.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/inbox/inbox.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/inbox/inbox.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/login/login.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/app/components/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../frontend/emailwebapp/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/emailwebapp/src/styles.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="22ve2tQhlz5B6hPxV0q9NzNIWYK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/emailweb/pom.xml" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14dafddd-a729-463a-b9ee-4ba0c4635461" name="Changes" comment="" />
+      <created>1640722291045</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640722291045</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

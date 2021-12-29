@@ -1,60 +1,56 @@
 <div class="col-sm-9 col-md-10" id="tablemess">
   <!-- Nav tabs -->
   <ul class="nav nav-tabs">
-    <li class="active"><a routerLink="inbox" data-toggle="tab"><span class="glyphicon glyphicon-inbox">
-    </span>Emails</a></li>
-    <li><a routerLink="Trash" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>
-        Delete</a></li>
-    <li><a routerLink="search" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>
-        Properties</a></li>
-    <li><a routerLink="Compose"data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin">
-    </span></a></li>
-</ul>
-  <!-- Tab panes -->
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+      <li><a routerLink="search" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>  Rename</a></li>
+      <li><a routerLink="Compose"data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin"></span>Add</a></li>
+     <li > <label for="Sort" data-toggle="tab" style="display: inline;height: 5px;">Sort</label>
+        <select data-toggle="tab">
+        <option data-toggle="tab">Important</option>
+        <option data-toggle="tab">Date</option>
+        <option data-toggle="tab">Asending</option>
+        <option data-toggle="tab">Desending</option>
+      </select></li>
+  </ul>
+
   <div class="tab-content">
       <div class="tab-pane fade in active" id="home">
-          <div class="list-group">
-              <a href="#" class="list-group-item">
-                  <ng-template #emails>
-                  <div class="checkbox">
-                      <label>
-                          <input type="checkbox">
-                      </label>
-                  </div>
+          <div class="list-group" >
+          <table style="width: 600px;">
+            <tbody>
+              <tr  of *ngFor="let item of list ;let id =index" >
+                <a    class="list-group-item"  [routerLink]="id.toString()">
 
-                  <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
-                      display: inline-block;">Object.name</span> <span class="">Subjectofemail</span>
-                  <span class="text-muted" style="font-size: 11px;">- Hi hello how are you ?</span> <span
-                      class="badge">TIME</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip">
-                      </span></span>
-                   </ng-template>
-
-                 <ng-container *ngTemplateOutlet="emails"></ng-container>
+                    <label>
+                        <input type="checkbox"  >
+                    </label>
+                    <span class="glyphicon glyphicon-star-empty">  </span>
 
 
-               </a>
+               <span class="name" style="min-width: 120px;
+                display: inline-block;">{{item.from}}</span> <span class="">{{item.Subject}}</span>
+            <span class="text-muted" style="font-size: 11px;"> {{item.body}} </span> <span
+                class="badge">{{item.time}}</span> <span class="pull-right">
+             </span></a>
+
+
+              </tr>
+              <ngb-pagination [(page)]="page"
+                     [pageSize]="size"
+                     [collectionSize]="elenum"
+                     style="position: relative;
+                     margin-left: auto;"
+                     (pageChange)="clippage()"
+              ></ngb-pagination>
+            </tbody>
+
+          </table>
+
           </div>
       </div>
-      <div class="pull-right">
-          <span class="text-muted"><b>1</b>–<b>50</b> of <b>277</b></span>
-          <div class="btn-group btn-group-sm">
-              <button type="button" class="btn btn-default">
-                  <span class="glyphicon glyphicon-chevron-left"></span>
-              </button>
-              <button type="button" class="btn btn-default">
-                  <span class="glyphicon glyphicon-chevron-right"></span>
-              </button>
-          </div>
-      </div>
-      <div class="tab-pane fade in" id="profile">
-          <div class="list-group">
-              <div class="list-group-item">
-                  <span class="text-center">This tab is empty.</span>
-              </div>
-          </div>
-      </div>
-      <div class="tab-pane fade in" id="messages">
-          ...</div>
-      <div class="tab-pane fade in" id="settings">
-          This tab is empty.</div>
-  </div>
+      <router-outlet ></router-outlet>
+
+

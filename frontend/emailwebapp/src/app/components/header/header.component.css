@@ -10,8 +10,16 @@
   size: auto;
 
 }
- .col-md-2 {
-
+ #compose {
+  display: block;
+  width: 89%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-bottom: 11px;
+  margin-top: 11px;
+}
+.active{
+  background-color: rgb(28, 28, 150) !important;
 }
 #menus{
   left: 5px;
@@ -27,4 +35,4 @@
     margin-left: 9px;
     margin-top: 10px;
     width: 153px;
-  height: 300px;}
+  height: 350px;}

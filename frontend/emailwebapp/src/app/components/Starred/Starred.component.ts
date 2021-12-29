@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ComponentscontrollerService } from '../componentscontroller.service';
+import { Email } from '../Email';
 
 @Component({
   selector: 'app-Starred',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarredComponent implements OnInit {
 
-  constructor() { }
+  Sentemails:Email[];
 
-  ngOnInit() {
+  page:number=1;
+
+  size:number=5;
+  elenum:number;
+
+  constructor(private controll:ComponentscontrollerService) {
+    this.Sentemails=this.controll.draftEmails;
+  this.elenum=this.Sentemails.length
+    console.log(this.Sentemails)
   }
+  ngOnInit(): void {
+  }
+
+  getDraftEmails(){
+  }
+  clippage(){}
 
 }

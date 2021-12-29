@@ -1,0 +1,39 @@
+#contact{
+  left: 800px;
+  top: 82px;
+  display: inline;
+  position: absolute
+}
+
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: fit-content;
+  border: 1px solid #680ba7;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: 50px;
+}
+#login-column
+{
+position: absolute;
+left: 600px;
+top: 100px;
+width: 300px;
+border-radius: 5%;
+border-color: brown;
+border-width:5px ;
+}
+#table
+{
+
+  position: absolute;
+  top: 66px;
+  left: 250px;
+  width: 700px;
+  height: auto;}
+

@@ -14,23 +14,73 @@ import { SearchComponent } from './components/search/search.component';
 import { SentItemsComponent } from './components/SentItems/SentItems.component';
 import { TrashComponent } from './components/Trash/Trash.component';
 import { DraftsComponent } from './components/Drafts/Drafts.component';
-import { NgForm } from '@angular/forms';
+import {  MatTableModule } from '@angular/material/table';
+import {FileUploadModule} from 'primeng/fileupload';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import {EditorModule} from 'primeng/editor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';                  //api
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './components/register/register.component';
+import { EmailDetialsComponent } from './components/EmailDetials/EmailDetials.component';
+import { ContactComponent } from './components/Contact/Contact.component';
+import { ResolveService } from './components/EmailDetials/resolve.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes:Routes=[
-  {path:"Compose",component:ComposeComponent},
-  {path:"inbox",component:InboxComponent},
-  {path:"SentItems",component:SentItemsComponent},
-  {path:"Trash",component:TrashComponent},
-  {path:"Drafts",component:DraftsComponent},
-  {path:"Star",component:StarredComponent},
-  {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent},
-  {path:"header",component:HeaderComponent},
+
+  {path:'login',component:LoginComponent},
+  {path:'register',component:RegisterComponent},
+
+
+  {path:'header/:user',component:HeaderComponent,
+  children:[
+    {path:'',component:InboxComponent },
+  {path:'Compose',component:ComposeComponent},
+  {path:'inbox',component:InboxComponent,children:[
+
+    {path:':id',component:EmailDetialsComponent,resolve: {
+      email: ResolveService
+    }}
+
+  ]
+   },
+
+
+
+  {path:"SentItems",component:SentItemsComponent,children:[
+
+    {path:':id',component:EmailDetialsComponent,resolve: {
+      email: ResolveService
+    }}
+
+  ]},
+  {path:'contact',component:ContactComponent},
+  {path:"Trash",component:TrashComponent,children:[
+
+    {path:':id',component:EmailDetialsComponent,resolve: {
+      email: ResolveService
+    }}
+
+  ]},
+  {path:"Drafts",component:DraftsComponent,children:[
+
+    {path:':id',component:EmailDetialsComponent,resolve: {
+      email: ResolveService
+    }}
+
+  ]},
+  {path:"Star",component:StarredComponent,children:[
+
+    {path:':id',component:EmailDetialsComponent,resolve: {
+      email: ResolveService
+    }}
+
+  ]},
+
+
+    ]},
+
 
 
 
@@ -43,13 +93,13 @@ const routes:Routes=[
     SearchComponent,
     ComposeComponent,
     SentItemsComponent,
-    TrashComponent,DraftsComponent,StarredComponent,LoginComponent, RegisterComponent
+    TrashComponent,DraftsComponent,StarredComponent,LoginComponent, RegisterComponent,EmailDetialsComponent,ContactComponent
 
    ],
   imports: [
     RouterModule.forRoot(routes),
-    BrowserModule,
-    AppRoutingModule,EditorModule, NgbModule,HttpClientModule, ReactiveFormsModule,FormsModule
+    BrowserModule,MatTableModule,
+    AppRoutingModule,EditorModule, FileUploadModule,NgbModule,HttpClientModule, ReactiveFormsModule,FormsModule, BrowserAnimationsModule,MatPaginatorModule,
 
   ],
   providers: [ComponentscontrollerService],
