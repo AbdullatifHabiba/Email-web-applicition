@@ -1,40 +1,301 @@
 package com.example.emailweb;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.ParseException;
 import static org.mockito.Mockito.mock;
 
 class ControllerTest {
 
-    Operations operations = mock(Operations.class);
+    Operations o = mock(Operations.class);
 
     @Test
-    void send() {
+    void send() throws JSONException, ParseException, IOException {
+        Operations o = mock(Operations.class);
+        JSONObject JO = new JSONObject();
+        JO.put("Name","Ahmed");
+        JO.put("UserName","ahmed");
+        JO.put("Password","1234567");
+        JO.put("DateOfBirth","2002-01-01");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("Name","Mohamed");
+        JO.put("UserName","mohamed");
+        JO.put("Password","00000000");
+        JO.put("DateOfBirth","2006-02-16");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("To","none");
+        JO.put("Object","Hi");
+        JO.put("Body","How are U?");
+        JO.put("Importance","0");
+        o.Send(JO.toString(), new MultipartFile() {
+            @Override
+            public String getName() {
+                return null;
+            }
+
+            @Override
+            public String getOriginalFilename() {
+                return null;
+            }
+
+            @Override
+            public String getContentType() {
+                return null;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public long getSize() {
+                return 0;
+            }
+
+            @Override
+            public byte[] getBytes() throws IOException {
+                return new byte[0];
+            }
+
+            @Override
+            public InputStream getInputStream() throws IOException {
+                return null;
+            }
+
+            @Override
+            public void transferTo(File dest) throws IOException, IllegalStateException {
+
+            }
+        });
     }
 
     @Test
-    void login() {
+    void login() throws JSONException, ParseException {
+        JSONObject JO = new JSONObject();
+        JO.put("Name","Ahmed");
+        JO.put("UserName","ahmed");
+        JO.put("Password","1234567");
+        JO.put("DateOfBirth","2002-01-01");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("Name","Mohamed");
+        JO.put("UserName","mohamed");
+        JO.put("Password","00000000");
+        JO.put("DateOfBirth","2006-02-16");
+        o.Regist(JO.toString());
+        o.LogIn("ahmed", "1234567");
     }
 
     @Test
-    void regist() {
+    void regist() throws JSONException, ParseException {
+        JSONObject JO = new JSONObject();
+        JO.put("Name","Ahmed");
+        JO.put("UserName","ahmed");
+        JO.put("Password","1234567");
+        JO.put("DateOfBirth","2002-01-01");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("Name","Mohamed");
+        JO.put("UserName","mohamed");
+        JO.put("Password","00000000");
+        JO.put("DateOfBirth","2006-02-16");
+        o.Regist(JO.toString());
     }
 
     @Test
-    void delete() {
+    void delete() throws IOException, ParseException, JSONException {
+        JSONObject JO = new JSONObject();
+        JO.put("Name","Ahmed");
+        JO.put("UserName","ahmed");
+        JO.put("Password","1234567");
+        JO.put("DateOfBirth","2002-01-01");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("Name","Mohamed");
+        JO.put("UserName","mohamed");
+        JO.put("Password","00000000");
+        JO.put("DateOfBirth","2006-02-16");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("To","ahmed");
+        JO.put("Object","Hi");
+        JO.put("Body","How are U?");
+        JO.put("Importance","0");
+        o.Send(JO.toString(), new MultipartFile() {
+            @Override
+            public String getName() {
+                return null;
+            }
+
+            @Override
+            public String getOriginalFilename() {
+                return null;
+            }
+
+            @Override
+            public String getContentType() {
+                return null;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public long getSize() {
+                return 0;
+            }
+
+            @Override
+            public byte[] getBytes() throws IOException {
+                return new byte[0];
+            }
+
+            @Override
+            public InputStream getInputStream() throws IOException {
+                return null;
+            }
+
+            @Override
+            public void transferTo(File dest) throws IOException, IllegalStateException {
+
+            }
+        });
+        o.Delete("Sent", 0);
     }
 
     @Test
-    void sort() {
+    void sort() throws IOException, ParseException, JSONException {
+        JSONObject JO = new JSONObject();
+        JO.put("Name","Ahmed");
+        JO.put("UserName","ahmed");
+        JO.put("Password","1234567");
+        JO.put("DateOfBirth","2002-01-01");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("Name","Mohamed");
+        JO.put("UserName","mohamed");
+        JO.put("Password","00000000");
+        JO.put("DateOfBirth","2006-02-16");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("To","ahmed");
+        JO.put("Object","Hi");
+        JO.put("Body","How are U?");
+        JO.put("Importance","0");
+        o.Send(JO.toString(), new MultipartFile() {
+            @Override
+            public String getName() {
+                return null;
+            }
+
+            @Override
+            public String getOriginalFilename() {
+                return null;
+            }
+
+            @Override
+            public String getContentType() {
+                return null;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public long getSize() {
+                return 0;
+            }
+
+            @Override
+            public byte[] getBytes() throws IOException {
+                return new byte[0];
+            }
+
+            @Override
+            public InputStream getInputStream() throws IOException {
+                return null;
+            }
+
+            @Override
+            public void transferTo(File dest) throws IOException, IllegalStateException {
+
+            }
+        });
+        o.Sort("DateD", "Sent");
     }
 
     @Test
-    void star() {
-    }
+    void star() throws IOException, ParseException, JSONException {
+        JSONObject JO = new JSONObject();
+        JO.put("Name","Ahmed");
+        JO.put("UserName","ahmed");
+        JO.put("Password","1234567");
+        JO.put("DateOfBirth","2002-01-01");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("Name","Mohamed");
+        JO.put("UserName","mohamed");
+        JO.put("Password","00000000");
+        JO.put("DateOfBirth","2006-02-16");
+        o.Regist(JO.toString());
+        JO = new JSONObject();
+        JO.put("To","ahmed");
+        JO.put("Object","Hi");
+        JO.put("Body","How are U?");
+        JO.put("Importance","0");
+        o.Send(JO.toString(), new MultipartFile() {
+            @Override
+            public String getName() {
+                return null;
+            }
 
-    @Test
-    void display() {
+            @Override
+            public String getOriginalFilename() {
+                return null;
+            }
+
+            @Override
+            public String getContentType() {
+                return null;
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return false;
+            }
+
+            @Override
+            public long getSize() {
+                return 0;
+            }
+
+            @Override
+            public byte[] getBytes() throws IOException {
+                return new byte[0];
+            }
+
+            @Override
+            public InputStream getInputStream() throws IOException {
+                return null;
+            }
+
+            @Override
+            public void transferTo(File dest) throws IOException, IllegalStateException {
+
+            }
+        });
+        o.Star("Sent", 0);
     }
 }

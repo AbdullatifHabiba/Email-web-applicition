@@ -1,10 +1,15 @@
 package com.example.emailweb;
 
+import com.example.emailweb.converter.JSONtoEmail;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200/")
@@ -15,7 +20,8 @@ public class Controller {
     public Controller() throws IOException {
     }
 
-    @GetMapping("/send")
+    @PostMapping ("/send")
+
     boolean send(@RequestParam("Info") String model, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException, ParseException {
         return O.Send(model, file);
     }
@@ -46,13 +52,13 @@ public class Controller {
     }
 
     @GetMapping("/displayemails")
-    void displayemsils(@RequestParam String Type) throws IOException {
-        O.Paggination(Type);
+    ArrayList<Email> displayemsils(@RequestParam String Type, @RequestParam int Page) throws IOException {
+        return O.DisplayEmails(Type, Page);
     }
 
     @GetMapping("/displayemail")
-    void displayemail(@RequestParam String Type, @RequestParam int Position) throws IOException {
-        O.DisplayEmail(Type, Position);
+    Email displayemail(@RequestParam String Type, @RequestParam int Position) throws IOException {
+        return O.DisplayEmail(Type, Position);
     }
 
 }

@@ -7,7 +7,6 @@ import com.example.emailweb.sorting.SortByImportanceA;
 import com.example.emailweb.sorting.SortByImportanceD;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.multipart.MultipartFile;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,11 +14,13 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Operations {
 
-    static ArrayList<Account> accountslist = new ArrayList<>();
-    static Account Logged;
+    ArrayList<Account> accountslist = new ArrayList<>();
+    Account Logged;
+
     EmailArraytoJSON EAJ = new EmailArraytoJSON();
     EmailtoJSON EJ = new EmailtoJSON();
     AccountArraytoJSON AAJ = new AccountArraytoJSON();
@@ -29,6 +30,7 @@ public class Operations {
     ContactArraytoJSON CAJ = new ContactArraytoJSON();
     SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
     SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+    SimpleDateFormat sdf3 = new SimpleDateFormat("dd-MM-yyyy hh:mm:ss");
     JSONtoEmail JE = new JSONtoEmail();
     SortByImportanceA SIA = new SortByImportanceA();
     SortByImportanceD SID = new SortByImportanceD();
@@ -108,6 +110,7 @@ public class Operations {
         //LoadLogged();
         if (Existed(JO.getString("To"))){
             JO.put("From", Logged.getUserName());
+            JO.put("Date", sdf3.format(new Date()));
             Email M = JE.create(JO);
             int i = Acc(JO.getString("To"));
             Account R = accountslist.get(i);
@@ -130,11 +133,11 @@ public class Operations {
     boolean LogIn(String username, String password){
         if (!Existed(username))
             return false;
+        LoadAccounts();
         Account AC = accountslist.get(Acc(username));
         if (AC.getPassword().equalsIgnoreCase(password)){
             Logged = AC;
             SaveLogged();
-            SaveAccounts();
             return true;
         }
         else
@@ -207,40 +210,46 @@ public class Operations {
         catch (Exception e){ e.printStackTrace(); }
     }
 
-    void DisplayEmail(String Type, int Position) throws IOException {
+    ArrayList<Email> DisplayEmails(String Type, int Page) throws IOException {
+        Paggination(Type);
+        JSONArray JA;
+        ArrayList<Email> emails = new ArrayList<>();
+        try {
+            FileReader fileReader = new FileReader("emails.json");
+            JSONObject JO = new JSONObject(fileReader);
+            JA = JO.getJSONArray("Page" + Page);
+            for (int i = 0;i < JA.length();i++){
+                emails.add(JE.create(JA.getJSONObject(i)));
+            }
+        }
+        catch (ParseException e) {e.printStackTrace(); }
+        catch (Exception e) {e.printStackTrace(); }
+        return emails;
+    }
+
+    Email DisplayEmail(String Type, int Position) throws IOException {
         Email email;
         JSONObject JO = new JSONObject();
         switch (Type) {
             case "Inbox":
                 email = Logged.getInbox().get(Position);
-                JO = EJ.create(email);
-                break;
+                return email;
             case "Sent":
                 email = Logged.getSent().get(Position);
-                JO = EJ.create(email);
-                break;
+                return email;
             case "Srarred":
                 email = Logged.getStarred().get(Position);
-                JO = EJ.create(email);
-                break;
+                return email;
             case "Trash":
                 email = Logged.getTrash().get(Position);
-                JO = EJ.create(email);
-                break;
+                return email;
             case "Drafts":
                 email = Logged.getDrafts().get(Position);
-                JO = EJ.create(email);
-                break;
+                return email;
             default:
                 break;
         }
-        try {
-            FileWriter fileWriter4 = new FileWriter("email.json");
-            fileWriter4.write(JO.toString());
-            fileWriter4.flush();
-        }
-        catch (IOException e) {e.printStackTrace(); }
-        catch (Exception e){ e.printStackTrace(); }
+        return null;
     }
 
     void Sort(String Type, String EmailsType) throws IOException {
@@ -360,7 +369,6 @@ public class Operations {
             default:
                 break;
         }
-        Paggination(EmailsType);
     }
 
     void Delete(String Type, int Position) throws IOException {
@@ -398,7 +406,6 @@ public class Operations {
             default:
                 break;
         }
-        Paggination(Type);
     }
 
     void Star(String Type, int Position) throws IOException {
@@ -428,4 +435,6 @@ public class Operations {
         }
         Paggination(Type);
     }
+
+
 }
